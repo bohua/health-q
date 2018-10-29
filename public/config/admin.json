@@ -1,0 +1,60 @@
+{
+  "appid": "9747424a-c99f-4660-9d90-bafcd61ec5fa",
+  "kpis": {},
+  "charts": {
+    "MaxConcurrentUsers": "5fb01240-b452-4a3b-85d0-23340652400e",
+    "AvgSessionDuration": "dda9db48-dce7-445d-bf30-ce22eb7dfe50",
+    "UserPerDay": "e7bddf07-d20d-4685-8fb3-dde515240df2",
+    "AppsAccessedPerDay": "HMyHXk",
+    "SessionsOverTime": "ppkhJhv"
+  },
+  "variables": {},
+  "layout": [
+    {
+      "id": "admin-section",
+      "title": "ADMIN VIEW",
+      "charts": [
+        {
+          "id": "MaxConcurrentUsers",
+          "title": "",
+          "left": "0",
+          "top": "0",
+          "width": "0.25",
+          "height": "0.25"
+        },
+        {
+          "id": "UserPerDay",
+          "title": "",
+          "left": "0.25",
+          "top": "0",
+          "width": "0.25",
+          "height": "0.25"
+        },
+        {
+          "id": "AppsAccessedPerDay",
+          "title": "",
+          "left": "0.5",
+          "top": "0",
+          "width": "0.25",
+          "height": "0.25"
+        },
+        {
+          "id": "AvgSessionDuration",
+          "title": "",
+          "left": "0.75",
+          "top": "0",
+          "width": "0.25",
+          "height": "0.25"
+        },
+        {
+          "id": "SessionsOverTime",
+          "title": "",
+          "left": "0",
+          "top": "0.25",
+          "width": "1",
+          "height": "0.75"
+        }
+      ]
+    }
+  ]
+}

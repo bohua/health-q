@@ -1,0 +1,419 @@
+{
+  "appid": "7d854797-c9d5-44e9-8e22-3014f2f18fcc",
+  "adminid": "9747424a-c99f-4660-9d90-bafcd61ec5fa",
+  "kpis": {
+    "Benchmarking": "JWRPZFv",
+    "ClinicalVariation": "SurVa",
+    "Geospatial": "HXjA"
+  },
+  "charts": {
+    "Filter": "ScFd",
+    "BenchmarkingALOS": "hXMJGp",
+    "TotalCost": "JWRPZFv",
+    "AvgCost": "jQMmEsB",
+    "AvgCostByDRG": "QXSnpg",
+    "CostDistributionByAge": "pmrbAms",
+    "DRG": "JZddJk",
+    "EpisodeByAdmissionCategory": "RJMcAcm",
+    "NumberOfEpisode": "mNjSAp",
+    "NumOfEpisodes": "HXjA",
+    "ClinicalALOS": "SurVa",
+    "AvgCostPerEncounter": "CYpaDD",
+    "TopFive": "QJXCxg",
+    "BottomFive": "fgbmZ",
+    "CostDistributionByDRG": "PJnzR",
+    "CostDistributionByAge2": "mPcdLa",
+    "TrajectorySankey": "HSmpBg",
+    "TrajectoryLine": "qwccv",
+    "WIPMap": "TcDBSbt",
+    "Report": "JfPRup"
+  },
+  "variables": {
+    "selectionMeasure": "Selection_Measure",
+    "selectionDimension": "Selection_Dim"
+  },
+  "layout": [
+    {
+      "id": "dashboard-section",
+      "title": "Tableau de bord",
+      "kpis": [
+        {
+          "id": "Benchmarking",
+          "icon": "monetization_on",
+          "prefix": "Coût total",
+          "format": "($ 0.00 a)",
+          "title": "Étalonnage",
+          "subtitle": "2018-1009",
+          "colorScheme": "color-1",
+          "href": "1"
+        },
+        {
+          "id": "ClinicalVariation",
+          "icon": "pie_chart",
+          "prefix": "DMS",
+          "format": "($ 0.00 a)",
+          "title": "Variation clinique",
+          "subtitle": "2018-1009",
+          "colorScheme": "color-2",
+          "href": "2"
+        },
+        {
+          "id": "Geospatial",
+          "icon": "public",
+          "prefix": "Nombre d'épisode",
+          "format": "(0.00 a)",
+          "title": "Geospatial",
+          "subtitle": "2018-1009",
+          "colorScheme": "color-3",
+          "href": "4"
+        },
+        {
+          "id": "TrajectoryOfCare",
+          "icon": "face",
+          "value": "-.--",
+          "title": "Trajectoires de soins",
+          "subtitle": "2018-1009",
+          "colorScheme": "color-1",
+          "href": "3"
+        },
+        {
+          "id": "SafetyQuality",
+          "icon": "lock",
+          "value": "-.--",
+          "title": "Sécurité et qualité",
+          "subtitle": "2018-1009",
+          "colorScheme": "color-2",
+          "href": "5"
+        },
+        {
+          "id": "Reports",
+          "icon": "insert_drive_file",
+          "value": "-.--",
+          "title": "Rapport",
+          "subtitle": "2018-1009",
+          "colorScheme": "color-3",
+          "href": "6"
+        },
+        {
+          "id": "Admin",
+          "icon": "verified_user",
+          "value": "-.--",
+          "title": "Admin",
+          "subtitle": "Vue administrateur",
+          "colorScheme": "color-4"
+        },
+        {
+          "id": "DataQuality",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Qualité des données",
+          "subtitle": "En construction",
+          "colorScheme": "color-99"
+        },
+        {
+          "id": "LocalDevelopments",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Développements locaux",
+          "subtitle": "Ceci permettra de joindre la base locale de PPM pour accéder à davantage d’analyse de données en utilisant des solutions locales",
+          "colorScheme": "color-99"
+        },
+        {
+          "id": "Department",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Département d'urgence",
+          "subtitle": "En construction",
+          "colorScheme": "color-99"
+        },
+        {
+          "id": "Bloc",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Bloc opératoire",
+          "subtitle": "En construction",
+          "colorScheme": "color-99"
+        },
+        {
+          "id": "Patients",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Patients fréquents",
+          "subtitle": "En construction",
+          "colorScheme": "color-99"
+        },
+        {
+          "id": "Pharmacie",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Pharmacie",
+          "subtitle": "En construction",
+          "colorScheme": "color-99"
+        },
+        {
+          "id": "Laboratoire",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Laboratoire",
+          "subtitle": "En construction",
+          "colorScheme": "color-99"
+        },
+        {
+          "id": "Imagerie",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Imagerie",
+          "subtitle": "En construction",
+          "colorScheme": "color-99"
+        }
+      ]
+    },
+    {
+      "id": "benchmarking-section",
+      "title": "Étalonnage",
+      "charts": [
+        {
+          "id": "BenchmarkingALOS",
+          "title": "DMS (jour)",
+          "width": "0.2",
+          "height": "0.1",
+          "top": "0",
+          "left": "0",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "TotalCost",
+          "title": "Coût total",
+          "width": "0.2",
+          "top": "0",
+          "left": "0.2",
+          "height": "0.1",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "AvgCost",
+          "title": "Coût moyen par épisode",
+          "top": "0",
+          "left": "0.4",
+          "width": "0.2",
+          "height": "0.1",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "DRG",
+          "title": "DRG",
+          "top": "0",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.55"
+        },
+        {
+          "id": "EpisodeByAdmissionCategory",
+          "title": "Épisode par catégorie d'admission",
+          "top": "0.1",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.45"
+        },
+        {
+          "id": "NumberOfEpisode",
+          "title": "Nombre d'épisode",
+          "top": "0.55",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.45"
+        },
+        {
+          "id": "AvgCostByDRG",
+          "title": "Coût moyen par DRG",
+          "top": "0.55",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.45"
+        }
+      ]
+    },
+    {
+      "id": "clinical-variation-section",
+      "title": "Variation clinique",
+      "charts": [
+        {
+          "id": "NumOfEpisodes",
+          "title": "Nombre d'épisode",
+          "top": "0",
+          "left": "0",
+          "width": "0.2",
+          "height": "0.1",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "ClinicalALOS",
+          "title": "DMS (jour)",
+          "top": "0",
+          "left": "0.2",
+          "width": "0.2",
+          "height": "0.1",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "AvgCostPerEncounter",
+          "title": "Coût moyen par épisode",
+          "top": "0",
+          "left": "0.4",
+          "width": "0.2",
+          "height": "0.1",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "CostDistributionByDRG",
+          "title": "",
+          "top": "0.1",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.3"
+        },
+        {
+          "id": "TopFive",
+          "title": "",
+          "top": "0",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.5"
+        },
+        {
+          "id": "BottomFive",
+          "title": "",
+          "top": "0.5",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.5"
+        },
+        {
+          "id": "CostDistributionByAge2",
+          "title": "",
+          "top": "0.4",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.6"
+        }
+      ],
+      "measure": [
+        {
+          "label": "DMS",
+          "value": "a"
+        },
+        {
+          "label": "Nombre d'épisode",
+          "value": "b"
+        },
+        {
+          "label": "Coût total",
+          "value": "c"
+        }
+      ],
+      "dimension": [
+        {
+          "label": "DRG",
+          "value": "a"
+        },
+        {
+          "label": "Groupe d'âge",
+          "value": "b"
+        },
+        {
+          "label": "Sexe",
+          "value": "c"
+        }
+      ]
+    },
+    {
+      "id": "trajectory-of-care-section",
+      "title": "Trajectoires de soins",
+      "charts": [
+        {
+          "id": "TrajectorySankey",
+          "title": "",
+          "top": "0",
+          "left": "0",
+          "width": "1",
+          "height": "0.7"
+        },
+        {
+          "id": "TrajectoryLine",
+          "title": "",
+          "top": "0.7",
+          "left": "0",
+          "width": "1",
+          "height": "0.3"
+        }
+      ],
+      "measure": [
+        {
+          "label": "DMS",
+          "value": "a"
+        },
+        {
+          "label": "Nombre d'épisode",
+          "value": "b"
+        },
+        {
+          "label": "Coût total",
+          "value": "c"
+        }
+      ]
+    },
+    {
+      "id": "geospatial-wip-section",
+      "title": "Geospatial",
+      "charts": [
+        {
+          "id": "WIPMap",
+          "title": "",
+          "left": "0",
+          "top": "0",
+          "width": "1",
+          "height": "1"
+        }
+      ],
+      "measure": [
+        {
+          "label": "DMS",
+          "value": "a"
+        },
+        {
+          "label": "Nombre d'épisode",
+          "value": "b"
+        },
+        {
+          "label": "Coût total",
+          "value": "c"
+        }
+      ]
+    },
+    {
+      "id": "safety-quality-section",
+      "title": "Sécurité et qualité",
+      "charts": []
+    },
+    {
+      "id": "report-section",
+      "title": "Rapport",
+      "charts": [
+        {
+          "id": "Report",
+          "title": "",
+          "left": "0",
+          "top": "0",
+          "width": "1",
+          "height": "1"
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "appName": "Portail Québec",
+    "adminView": "Vue administrateur",
+    "clientView": "Vue client",
+    "filters": "filtres"
+  }
+}

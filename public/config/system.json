@@ -1,0 +1,10 @@
+{
+  "requireJsConfig":{
+    "host": "phsportal.com.au",
+    "prefix": "/",
+    "port": 443,
+    "isSecure": true
+  },
+
+  "localRequireJsHosting": false
+}

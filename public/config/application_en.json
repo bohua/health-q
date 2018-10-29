@@ -1,0 +1,405 @@
+{
+  "appid": "7d854797-c9d5-44e9-8e22-3014f2f18fcc",
+  "adminid": "9747424a-c99f-4660-9d90-bafcd61ec5fa",
+  "kpis": {
+    "Benchmarking": "JWRPZFv",
+    "ClinicalVariation": "SurVa",
+    "Geospatial": "HXjA"
+  },
+  "charts": {
+    "Filter": "ScFd",
+    "BenchmarkingALOS": "hXMJGp",
+    "TotalCost": "JWRPZFv",
+    "AvgCost": "jQMmEsB",
+    "AvgCostByDRG": "QXSnpg",
+    "CostDistributionByAge": "pmrbAms",
+    "DRG": "JZddJk",
+    "EpisodeByAdmissionCategory": "RJMcAcm",
+    "NumberOfEpisode": "mNjSAp",
+    "NumOfEpisodes": "HXjA",
+    "ClinicalALOS": "SurVa",
+    "AvgCostPerEncounter": "CYpaDD",
+    "TopFive": "QJXCxg",
+    "BottomFive": "fgbmZ",
+    "CostDistributionByDRG": "PJnzR",
+    "CostDistributionByAge2": "mPcdLa",
+    "TrajectorySankey": "HSmpBg",
+    "TrajectoryLine": "qwccv",
+    "WIPMap": "TcDBSbt",
+    "Report": "JfPRup"
+  },
+  "variables": {
+    "selectionMeasure": "Selection_Measure",
+    "selectionDimension": "Selection_Dim"
+  },
+  "layout": [
+    {
+      "id": "dashboard-section",
+      "title": "Dashboard",
+      "kpis": [
+        {
+          "id": "Benchmarking",
+          "icon": "monetization_on",
+          "prefix": "Total Cost",
+          "format": "($ 0.00 a)",
+          "title": "BENCHMARKING",
+          "subtitle": "2018-1009",
+          "colorScheme": "color-1",
+          "href": "1"
+        },
+        {
+          "id": "ClinicalVariation",
+          "icon": "pie_chart",
+          "prefix": "ALOS",
+          "format": "($ 0.00 a)",
+          "title": "CLINICAL VARIATION",
+          "subtitle": "2018-1009",
+          "colorScheme": "color-2",
+          "href": "2"
+        },
+        {
+          "id": "Geospatial",
+          "icon": "public",
+          "prefix": "Total Episodes",
+          "format": "(0.00 a)",
+          "title": "Geospatial",
+          "subtitle": "2018-1009",
+          "colorScheme": "color-3",
+          "href": "4"
+        },
+        {
+          "id": "TrajectoryOfCare",
+          "icon": "face",
+          "value": "-.--",
+          "title": "TRAJECTORY of CARE",
+          "subtitle": "2018-1009",
+          "colorScheme": "color-1",
+          "href": "3"
+        },
+        {
+          "id": "SafetyQuality",
+          "icon": "lock",
+          "value": "-.--",
+          "title": "SAFETY & QUALITY",
+          "subtitle": "2018-1009",
+          "colorScheme": "color-2",
+          "href": "5"
+        },
+        {
+          "id": "Reports",
+          "icon": "insert_drive_file",
+          "value": "-.--",
+          "title": "Reports",
+          "subtitle": "2018-1009",
+          "colorScheme": "color-3",
+          "href": "6"
+        },
+        {
+          "id": "DataQuality",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Data Quality",
+          "subtitle": "Under Construction",
+          "colorScheme": "color-99"
+        },
+        {
+          "id": "LocalDevelopments",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Local developments",
+          "subtitle": "This will link to the local PPM to access further data analysis using local solutions",
+          "colorScheme": "color-99"
+        },
+        {
+          "id": "Department",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Département d'urgence",
+          "subtitle": "Under Construction",
+          "colorScheme": "color-99"
+        },
+        {
+          "id": "Bloc",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Bloc opératoire",
+          "subtitle": "Under Construction",
+          "colorScheme": "color-99"
+        },
+        {
+          "id": "Patients",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Patients fréquents",
+          "subtitle": "Under Construction",
+          "colorScheme": "color-99"
+        },
+        {
+          "id": "Pharmacie",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Pharmacie",
+          "subtitle": "Under Construction",
+          "colorScheme": "color-99"
+        },
+        {
+          "id": "Laboratoire",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Laboratoire",
+          "subtitle": "Under Construction",
+          "colorScheme": "color-99"
+        },
+        {
+          "id": "Imagerie",
+          "icon": "build",
+          "value": "-.--",
+          "title": "Imagerie",
+          "subtitle": "Under Construction",
+          "colorScheme": "color-99"
+        }
+      ]
+    },
+    {
+      "id": "benchmarking-section",
+      "title": "Benchmarking",
+      "charts": [
+        {
+          "id": "BenchmarkingALOS",
+          "title": "ALOS (Days)",
+          "width": "0.2",
+          "height": "0.1",
+          "top": "0",
+          "left": "0",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "TotalCost",
+          "title": "Total Cost",
+          "width": "0.2",
+          "top": "0",
+          "left": "0.2",
+          "height": "0.1",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "AvgCost",
+          "title": "Average Cost Per Encounter",
+          "top": "0",
+          "left": "0.4",
+          "width": "0.2",
+          "height": "0.1",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "DRG",
+          "title": "DRG",
+          "top": "0",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.55"
+        },
+        {
+          "id": "EpisodeByAdmissionCategory",
+          "title": "Episode By Admission Category",
+          "top": "0.1",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.45"
+        },
+        {
+          "id": "NumberOfEpisode",
+          "title": "Number Of Episode",
+          "top": "0.55",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.45"
+        },
+        {
+          "id": "AvgCostByDRG",
+          "title": "Avg Cost by DRG",
+          "top": "0.55",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.45"
+        }
+      ]
+    },
+    {
+      "id": "clinical-variation-section",
+      "title": "Clinical Variation",
+      "charts": [
+        {
+          "id": "NumOfEpisodes",
+          "title": "Number of Episodes",
+          "top": "0",
+          "left": "0",
+          "width": "0.2",
+          "height": "0.1",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "ClinicalALOS",
+          "title": "ALOS (Days)",
+          "top": "0",
+          "left": "0.2",
+          "width": "0.2",
+          "height": "0.1",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "AvgCostPerEncounter",
+          "title": "Average Cost per Encounter",
+          "top": "0",
+          "left": "0.4",
+          "width": "0.2",
+          "height": "0.1",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "CostDistributionByDRG",
+          "title": "",
+          "top": "0.1",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.3"
+        },
+        {
+          "id": "TopFive",
+          "title": "",
+          "top": "0",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.5"
+        },
+        {
+          "id": "BottomFive",
+          "title": "",
+          "top": "0.5",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.5"
+        },
+        {
+          "id": "CostDistributionByAge2",
+          "title": "",
+          "top": "0.4",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.6"
+        }
+      ],
+      "measure": [
+        {
+          "label": "ALOS",
+          "value": "a"
+        },
+        {
+          "label": "Number of Episodes",
+          "value": "b"
+        },
+        {
+          "label": "Total Cost",
+          "value": "c"
+        }
+      ],
+      "dimension": [
+        {
+          "label": "DRG",
+          "value": "a"
+        },
+        {
+          "label": "Age Group",
+          "value": "b"
+        },
+        {
+          "label": "Gender",
+          "value": "c"
+        }
+      ]
+    },
+    {
+      "id": "trajectory-of-care-section",
+      "title": "Trajectoires de soins",
+      "charts": [
+        {
+          "id": "TrajectorySankey",
+          "title": "",
+          "top": "0",
+          "left": "0",
+          "width": "1",
+          "height": "0.7"
+        },
+        {
+          "id": "TrajectoryLine",
+          "title": "",
+          "top": "0.7",
+          "left": "0",
+          "width": "1",
+          "height": "0.3"
+        }
+      ],
+      "measure": [
+        {
+          "label": "ALOS",
+          "value": "a"
+        },
+        {
+          "label": "Number of Episodes",
+          "value": "b"
+        },
+        {
+          "label": "Total Cost",
+          "value": "c"
+        }
+      ]
+    },
+    {
+      "id": "geospatial-wip-section",
+      "title": "Geospatial",
+      "charts": [
+        {
+          "id": "WIPMap",
+          "title": "",
+          "left": "0",
+          "top": "0",
+          "width": "1",
+          "height": "1"
+        }
+      ],
+      "measure": [
+        {
+          "label": "ALOS",
+          "value": "a"
+        },
+        {
+          "label": "Number of Episodes",
+          "value": "b"
+        },
+        {
+          "label": "Total Cost",
+          "value": "c"
+        }
+      ]
+    },
+    {
+      "id": "safety-quality-section",
+      "title": "Safety & Quality",
+      "charts": []
+    },
+    {
+      "id": "report-section",
+      "title": "Report",
+      "charts": [
+        {
+          "id": "Report",
+          "title": "",
+          "left": "0",
+          "top": "0",
+          "width": "1",
+          "height": "1"
+        }
+      ]
+    }
+  ]
+}

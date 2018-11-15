@@ -114,16 +114,27 @@ class ChartSection extends Component {
                           open={Boolean(anchorEl)}
                           onClose={this.handleExportClose}>
 
-                        {charts.map((chart) => (
-                            <MenuItem key={chart.id}
-                                      onClick={() => this.handleExport(chart.id)}>{this.props.dataModel.charts[chart.id].model.layout.title}</MenuItem>
-                        ))}
+                        {charts.map(
+                            (chart) => {
+                                let dataModel = this.props.dataModel.charts[chart.id];
+
+                                if (dataModel) {
+                                    return (
+                                        <MenuItem key={chart.id}
+                                                  onClick={() => this.handleExport(chart.id)}>{this.props.dataModel.charts[chart.id].model.layout.title}</MenuItem>
+                                    )
+                                }
+
+                                return null;
+
+                            }
+                        )}
 
                     </Menu>
                 </div>
                 <div className="chart-section-body" style={{height: window.innerHeight - 154}}>
                     {charts.map((chart) => (
-                        <ChartBlock {...chart} key={chart.id} handler={this.props.dataModel.charts[chart.id]}/>
+                        <ChartBlock {...chart} key={chart.id} dataModel={this.props.dataModel} toRender={this.props.toRender}/>
                     ))}
 
                     {charts.length < 1 ? <img className="placeholder" src={placeHolder} alt="placeholder"

@@ -154,6 +154,8 @@ class App extends Component {
                                     key="Filter"
                                     top="0" left="0"
                                     width="100%" height="100%"
+                                    toRender={true}
+                                    dataModel={this.state.dataModel}
                         />
                     ) : null}
                 </div>
@@ -294,6 +296,7 @@ class App extends Component {
                                                               backToHome={() => this.kpiNav(0)}
                                                               dataModel={this.state.dataModel}
                                                               changeVariable={this.changeVariable.bind(this)}
+                                                              toRender={this.state.currentSection? this.state.currentSection.id === section.id : false}
                                                 />
                                             )
                                         }

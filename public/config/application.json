@@ -26,7 +26,10 @@
     "TrajectorySankey": "HSmpBg",
     "TrajectoryLine": "qwccv",
     "WIPMap": "TcDBSbt",
-    "Report": "JfPRup"
+    "Report": "JfPRup",
+    "AvgCostByDischargeTime": "nRC",
+    "DirectVsIndirectCost": "mvdA",
+    "CostBucket": "ckCwpj"
   },
   "variables": {
     "selectionMeasure": "Selection_Measure",
@@ -51,7 +54,7 @@
           "id": "ClinicalVariation",
           "icon": "pie_chart",
           "prefix": "DMS",
-          "format": "($ 0.00 a)",
+          "format": "(0.00 a)",
           "title": "Variation clinique",
           "subtitle": "2018-1009",
           "colorScheme": "color-2",
@@ -86,13 +89,22 @@
           "href": "5"
         },
         {
+          "id": "CostProfile",
+          "icon": "monetization_on",
+          "value": "-.--",
+          "title": "Profil de coût",
+          "subtitle": "2018-1009",
+          "colorScheme": "color-1",
+          "href": "6"
+        },
+        {
           "id": "Reports",
           "icon": "insert_drive_file",
           "value": "-.--",
           "title": "Rapport",
           "subtitle": "2018-1009",
           "colorScheme": "color-3",
-          "href": "6"
+          "href": "7"
         },
         {
           "id": "Admin",
@@ -309,6 +321,10 @@
         {
           "label": "Coût total",
           "value": "c"
+        },
+        {
+          "label": "Coût moyen",
+          "value": "d"
         }
       ],
       "dimension": [
@@ -321,8 +337,12 @@
           "value": "b"
         },
         {
-          "label": "Sexe",
+          "label": "Installation",
           "value": "c"
+        },
+        {
+          "label": "Sexe",
+          "value": "d"
         }
       ]
     },
@@ -360,6 +380,10 @@
           "label": "Coût total",
           "value": "c"
         }
+       ,{
+          "label": "Coût moyen",
+          "value": "d"
+        }
       ]
     },
     {
@@ -387,6 +411,10 @@
         {
           "label": "Coût total",
           "value": "c"
+        },
+        {
+          "label": "Coût moyen",
+          "value": "d"
         }
       ]
     },
@@ -394,6 +422,34 @@
       "id": "safety-quality-section",
       "title": "Sécurité et qualité",
       "charts": []
+    },
+    {
+      "id": "cost-profile-section",
+      "title": "Profil de coût",
+      "charts": [
+        {
+          "id": "AvgCostByDischargeTime",
+          "title": "",
+          "top": "0",
+          "left": "0",
+          "width": "0.7",
+          "height": "0.5"
+        },{
+          "id": "DirectVsIndirectCost",
+          "title": "",
+          "top": "0",
+          "left": "0.7",
+          "width": "0.3",
+          "height": "0.5"
+        }, {
+          "id": "CostBucket",
+          "title": "",
+          "top": "0.5",
+          "left": "0",
+          "width": "1",
+          "height": "0.5"
+        }
+      ]
     },
     {
       "id": "report-section",

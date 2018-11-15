@@ -59,10 +59,13 @@ function init(that, config, objectMap) {
                 return promises.push(service.getKpi(name));
             });
 
+
             //Get all chart handlers
-            Object.keys(objectMap.charts).map((name) => {
-                return promises.push(service.getChart(name));
-            });
+            // Object.keys(objectMap.charts).map((name) => {
+            //     return promises.push(service.getChart(name));
+            // });
+
+            //promises.push(service.getChart("Filter"));
 
             //Get all variables
             Object.keys(objectMap.variables).map((name) => {
@@ -98,7 +101,13 @@ function init(that, config, objectMap) {
                         dict: objectMap.dict,
                         layout: objectMap.layout,
                         qlikObjService: service,
-                        isAdmin: hits.length > 0
+                        isAdmin: hits.length > 0,
+                        loadChart: async function(id){
+                            //let objId = objectMap.charts[id];
+                            let chart = await service.getChart(id);
+
+                            return chart.value
+                        }
                     });
 
                 }, requireJsConfig);

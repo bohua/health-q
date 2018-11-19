@@ -56,5 +56,11 @@
         }
       ]
     }
-  ]
+  ],
+  "dict": {
+    "appName": "Portail Québec",
+    "adminView": "Vue administrateur",
+    "clientView": "Vue client",
+    "filters": "filtres"
+  }
 }

@@ -144,7 +144,8 @@ class App extends Component {
                     <IconButton onClick={this.handleFilterClose}>
                         <ChevronLeftIcon/>
                     </IconButton>
-                    <span className="filter-panel-title">{this.state.dataModel.dict ? this.state.dataModel.dict.filters : "Filters"}</span>
+                    <span
+                        className="filter-panel-title">{this.state.dataModel.dict ? this.state.dataModel.dict.filters : "Filters"}</span>
                 </div>
                 <Divider/>
                 <div className="filter-panel-body">
@@ -181,8 +182,9 @@ class App extends Component {
                         ))
                     }
                     <Divider/>
-                    {this.state.dataModel.isAdmin ?
-                        <MenuItem onClick={() => this.handleUserNav("admin")}>{this.state.dataModel.dict.adminView}</MenuItem> : null
+                    {this.state.dataModel.dict ?
+                        <MenuItem
+                            onClick={() => this.handleUserNav("admin")}>{this.state.dataModel.dict.adminView}</MenuItem> : null
                     }
                 </Menu>
             );
@@ -194,7 +196,11 @@ class App extends Component {
                     open={Boolean(this.state.userEl)}
                     onClose={this.handleUserClose}
                 >
-                    <MenuItem onClick={() => this.handleUserNav("user")}>{this.state.dataModel.dict.clientView}</MenuItem>)
+                    {this.state.dataModel.dict ?
+                        <MenuItem
+                            onClick={() => this.handleUserNav("user")}>{this.state.dataModel.dict.clientView}</MenuItem> : null
+                    }
+
                 </Menu>
             );
         }
@@ -282,11 +288,18 @@ class App extends Component {
                                             if (section.id === "dashboard-section") {
                                                 return (
                                                     <Dashboard
-                                                               goToPage={this.kpiNav.bind(this)}
-                                                               dataModel={this.state.dataModel}
-                                                               key={section.id}
+                                                        goToPage={this.kpiNav.bind(this)}
+                                                        dataModel={this.state.dataModel}
+                                                        key={section.id}
                                                     />
                                                 );
+                                            }
+
+                                            let toRender = false;
+                                            if (this.state.profile === "admin") {
+                                                toRender = true;
+                                            } else if (this.state.currentSection) {
+                                                toRender = this.state.currentSection.id === section.id;
                                             }
 
                                             return (
@@ -296,7 +309,7 @@ class App extends Component {
                                                               backToHome={() => this.kpiNav(0)}
                                                               dataModel={this.state.dataModel}
                                                               changeVariable={this.changeVariable.bind(this)}
-                                                              toRender={this.state.currentSection? this.state.currentSection.id === section.id : false}
+                                                              toRender={toRender}
                                                 />
                                             )
                                         }

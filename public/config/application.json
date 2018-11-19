@@ -44,7 +44,7 @@
           "id": "Benchmarking",
           "icon": "monetization_on",
           "prefix": "Coût total",
-          "format": "($ 0.00 a)",
+          "format": "(0.00 a $)",
           "title": "Étalonnage",
           "subtitle": "2018-1009",
           "colorScheme": "color-1",
@@ -380,7 +380,7 @@
           "label": "Coût total",
           "value": "c"
         }
-       ,{
+      ,{
           "label": "Coût moyen",
           "value": "d"
         }

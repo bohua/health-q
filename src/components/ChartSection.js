@@ -17,7 +17,6 @@ class ChartSection extends Component {
         };
     }
 
-
     handleExportOpen = event => {
         this.setState({anchorEl: event.currentTarget});
     };

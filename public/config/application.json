@@ -35,6 +35,7 @@
     "selectionMeasure": "Selection_Measure",
     "selectionDimension": "Selection_Dim"
   },
+  "bookmark": "f22c8631-aa4d-4be1-902d-6304f68dd868",
   "layout": [
     {
       "id": "dashboard-section",
@@ -46,7 +47,7 @@
           "prefix": "Coût total",
           "format": "(0.00 a $)",
           "title": "Étalonnage",
-          "subtitle": "2018-1009",
+          "subtitle": "2016-17",
           "colorScheme": "color-1",
           "href": "1"
         },
@@ -54,9 +55,8 @@
           "id": "ClinicalVariation",
           "icon": "pie_chart",
           "prefix": "DMS",
-          "format": "(0.00 a)",
           "title": "Variation clinique",
-          "subtitle": "2018-1009",
+          "subtitle": "2016-17",
           "colorScheme": "color-2",
           "href": "2"
         },
@@ -66,50 +66,50 @@
           "prefix": "Nombre d'épisode",
           "format": "(0.00 a)",
           "title": "Geospatial",
-          "subtitle": "2018-1009",
+          "subtitle": "2016-17",
           "colorScheme": "color-3",
           "href": "4"
         },
         {
           "id": "TrajectoryOfCare",
           "icon": "face",
-          "value": "-.--",
-          "title": "Trajectoires de soins",
-          "subtitle": "2018-1009",
+          "value": "none",
+          "title": "Flux d’episodes",
+          "subtitle": "2016-17",
           "colorScheme": "color-1",
           "href": "3"
         },
         {
           "id": "SafetyQuality",
           "icon": "lock",
-          "value": "-.--",
+          "value": "none",
           "title": "Sécurité et qualité",
-          "subtitle": "2018-1009",
+          "subtitle": "2016-17",
           "colorScheme": "color-2",
           "href": "5"
         },
         {
           "id": "CostProfile",
           "icon": "monetization_on",
-          "value": "-.--",
+          "value": "none",
           "title": "Profil de coût",
-          "subtitle": "2018-1009",
+          "subtitle": "2016-17",
           "colorScheme": "color-1",
           "href": "6"
         },
         {
           "id": "Reports",
           "icon": "insert_drive_file",
-          "value": "-.--",
+          "value": "none",
           "title": "Rapport",
-          "subtitle": "2018-1009",
+          "subtitle": "2016-17",
           "colorScheme": "color-3",
           "href": "7"
         },
         {
           "id": "Admin",
           "icon": "verified_user",
-          "value": "-.--",
+          "value": "none",
           "title": "Admin",
           "subtitle": "Vue administrateur",
           "colorScheme": "color-4"
@@ -117,7 +117,7 @@
         {
           "id": "DataQuality",
           "icon": "build",
-          "value": "-.--",
+          "value": "none",
           "title": "Qualité des données",
           "subtitle": "En construction",
           "colorScheme": "color-99"
@@ -125,7 +125,7 @@
         {
           "id": "LocalDevelopments",
           "icon": "build",
-          "value": "-.--",
+          "value": "none",
           "title": "Développements locaux",
           "subtitle": "Ceci permettra de joindre la base locale de PPM pour accéder à davantage d’analyse de données en utilisant des solutions locales",
           "colorScheme": "color-99"
@@ -133,7 +133,7 @@
         {
           "id": "Department",
           "icon": "build",
-          "value": "-.--",
+          "value": "none",
           "title": "Département d'urgence",
           "subtitle": "En construction",
           "colorScheme": "color-99"
@@ -141,7 +141,7 @@
         {
           "id": "Bloc",
           "icon": "build",
-          "value": "-.--",
+          "value": "none",
           "title": "Bloc opératoire",
           "subtitle": "En construction",
           "colorScheme": "color-99"
@@ -149,7 +149,7 @@
         {
           "id": "Patients",
           "icon": "build",
-          "value": "-.--",
+          "value": "none",
           "title": "Patients fréquents",
           "subtitle": "En construction",
           "colorScheme": "color-99"
@@ -157,7 +157,7 @@
         {
           "id": "Pharmacie",
           "icon": "build",
-          "value": "-.--",
+          "value": "none",
           "title": "Pharmacie",
           "subtitle": "En construction",
           "colorScheme": "color-99"
@@ -165,7 +165,7 @@
         {
           "id": "Laboratoire",
           "icon": "build",
-          "value": "-.--",
+          "value": "none",
           "title": "Laboratoire",
           "subtitle": "En construction",
           "colorScheme": "color-99"
@@ -173,7 +173,7 @@
         {
           "id": "Imagerie",
           "icon": "build",
-          "value": "-.--",
+          "value": "none",
           "title": "Imagerie",
           "subtitle": "En construction",
           "colorScheme": "color-99"
@@ -243,6 +243,37 @@
           "width": "0.4",
           "height": "0.45"
         }
+      ],      "measure": [
+      {
+        "label": "DMS",
+        "value": "a"
+      },
+      {
+        "label": "Nombre d'épisode",
+        "value": "b"
+      },
+      {
+        "label": "Coût total",
+        "value": "c"
+      },
+      {
+        "label": "Coût moyen",
+        "value": "d"
+      }
+    ],
+      "dimension": [
+        {
+          "label": "DRG",
+          "value": "a"
+        },
+        {
+          "label": "Groupe d'âge",
+          "value": "b"
+        },
+        {
+          "label": "Installation",
+          "value": "c"
+        }
       ]
     },
     {
@@ -278,7 +309,7 @@
         },
         {
           "id": "CostDistributionByDRG",
-          "title": "",
+          "title": "none",
           "top": "0.1",
           "left": "0",
           "width": "0.6",
@@ -286,7 +317,7 @@
         },
         {
           "id": "TopFive",
-          "title": "",
+          "title": "none",
           "top": "0",
           "left": "0.6",
           "width": "0.4",
@@ -294,7 +325,7 @@
         },
         {
           "id": "BottomFive",
-          "title": "",
+          "title": "none",
           "top": "0.5",
           "left": "0.6",
           "width": "0.4",
@@ -302,7 +333,7 @@
         },
         {
           "id": "CostDistributionByAge2",
-          "title": "",
+          "title": "none",
           "top": "0.4",
           "left": "0",
           "width": "0.6",
@@ -339,20 +370,16 @@
         {
           "label": "Installation",
           "value": "c"
-        },
-        {
-          "label": "Sexe",
-          "value": "d"
         }
       ]
     },
     {
       "id": "trajectory-of-care-section",
-      "title": "Trajectoires de soins",
+      "title": "Flux d’episodes",
       "charts": [
         {
           "id": "TrajectorySankey",
-          "title": "",
+          "title": "none",
           "top": "0",
           "left": "0",
           "width": "1",
@@ -360,7 +387,7 @@
         },
         {
           "id": "TrajectoryLine",
-          "title": "",
+          "title": "none",
           "top": "0.7",
           "left": "0",
           "width": "1",
@@ -392,7 +419,7 @@
       "charts": [
         {
           "id": "WIPMap",
-          "title": "",
+          "title": "none",
           "left": "0",
           "top": "0",
           "width": "1",
@@ -429,21 +456,21 @@
       "charts": [
         {
           "id": "AvgCostByDischargeTime",
-          "title": "",
+          "title": "none",
           "top": "0",
           "left": "0",
           "width": "0.7",
           "height": "0.5"
         },{
           "id": "DirectVsIndirectCost",
-          "title": "",
+          "title": "none",
           "top": "0",
           "left": "0.7",
           "width": "0.3",
           "height": "0.5"
         }, {
           "id": "CostBucket",
-          "title": "",
+          "title": "none",
           "top": "0.5",
           "left": "0",
           "width": "1",
@@ -457,7 +484,7 @@
       "charts": [
         {
           "id": "Report",
-          "title": "",
+          "title": "none",
           "left": "0",
           "top": "0",
           "width": "1",
@@ -467,7 +494,7 @@
     }
   ],
   "dict": {
-    "appName": "Portail Québec",
+    "appName": "Portail du CPSS",
     "adminView": "Vue administrateur",
     "clientView": "Vue client",
     "filters": "filtres"

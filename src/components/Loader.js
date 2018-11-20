@@ -114,7 +114,9 @@ function init(that, config, objectMap) {
             });
         });
 
-
+        if(objectMap.bookmark){
+            currApp.bookmark.apply(objectMap.bookmark);
+        }
     });
 }
 

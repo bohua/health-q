@@ -10,7 +10,8 @@ export default class qlikObjService {
 
         return {
             name: objectName,
-            value: vis.model.layout.qHyperCube.qGrandTotalRow[0].qText,
+            //value: vis.model.layout.qHyperCube.qGrandTotalRow[0].qText,
+            value: vis,
             type: "kpi"
         };
     }

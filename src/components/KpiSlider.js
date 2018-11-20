@@ -38,7 +38,6 @@ class KpiSlider extends Component {
             ]
         };
 
-        const numeral = window.numeral;
         const kpis = [...this.props.dataModel.layout[0].kpis];
         const adminTile = kpis.filter((kpi) => kpi.id === "Admin");
 
@@ -59,12 +58,12 @@ class KpiSlider extends Component {
                 {kpis.map((kpi) => (
                     <KpiTile
                         {...kpi}
-                        value={kpi.value || numeral(this.props.dataModel.kpis[kpi.id]).format(kpi.format)}
+                        handler={this.props.dataModel.kpis[kpi.id]}
+                        //dataModel={this.props.dataModel}
+                        //value={kpi.value || numeral(this.props.dataModel.kpis[kpi.id]).format(kpi.format)}
                         goToPage={this.props.goToPage}
                         key={kpi.id}/>
                 ))}
-
-
             </Slider>
         );
     }

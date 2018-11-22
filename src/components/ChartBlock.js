@@ -3,16 +3,25 @@ import React, {Component} from 'react'
 // import CardContent from "@material-ui/core/CardContent"
 
 class ChartBlock extends Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            rendered: false
+        }
+    }
 
     componentDidUpdate() {
         const {dataModel, id} = this.props;
 
-        if (this.props.toRender) {
+        if (!this.state.rendered && this.props.toRender) {
             if (!!dataModel[id]) {
                 dataModel[id].show(id);
             } else {
                 dataModel.loadChart(id).then(chart => chart.show(id));
             }
+
+            this.setState({rendered: true});
         }
     }
 

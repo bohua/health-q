@@ -160,7 +160,7 @@ html, body, #root, .main-page, .router-page
 
 .chart-section
   padding: 10px 0 0 0
-  background: $color-bg
+  background: $color-dark
 
   .chart-section-title
     display: flex
@@ -173,7 +173,7 @@ html, body, #root, .main-page, .router-page
       margin: 0 5px
       padding: 0
       background: none
-      color: $color-dark-2
+      color: $color-light
       cursor: pointer
 
       &:hover
@@ -227,7 +227,19 @@ html, body, #root, .main-page, .router-page
     border: 1px solid $color-border
     box-sizing: border-box
     padding: 5px
-    background: $color-front
+    background: $color-light
+
+    &:hover
+      background: $color-lightest
+      border: 2px solid $color-highlight
+      box-sizing: border-box
+
+      .qv-object-title
+        background: $color-highlight
+
+        .qv-object-title-text
+          color: $color-lightest
+
 
     &.chart-kpi
       background: $color-kpi-bg

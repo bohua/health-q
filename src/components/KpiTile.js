@@ -22,7 +22,15 @@ class KpiTile extends Component {
         }
 
         if (!!this.props.action) {
-            this.props.action();
+            switch(this.props.action){
+                case 'admin':
+                    localStorage.setItem('profile', 'admin');
+                    window.location.reload();
+                    break;
+
+                default:
+                    return;
+            }
         }
     }
 

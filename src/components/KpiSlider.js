@@ -40,13 +40,13 @@ class KpiSlider extends Component {
 
         const kpis = [...this.props.dataModel.layout[0].kpis];
         const adminTile = kpis.filter((kpi) => kpi.id === "Admin");
+        // adminTile.action = () => {
+        //     localStorage.setItem('profile', 'admin');
+        //     window.location.reload();
+        // }
+        //
 
-        if (this.props.dataModel.isAdmin) {
-            adminTile.action = () => {
-                localStorage.setItem('profile', 'admin');
-                window.location.reload();
-            }
-        } else {
+        if (!this.props.dataModel.isAdmin) {
             let index = kpis.indexOf(adminTile);
             if (index > -1) {
                 kpis.splice(index, 1);

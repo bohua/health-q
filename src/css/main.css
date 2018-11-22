@@ -178,7 +178,7 @@ html, body, #root, .main-page, .router-page {
 
 .chart-section {
   padding: 10px 0 0 0;
-  background: #f6f6f6;
+  background: #2c2e36;
 }
 .chart-section .chart-section-title {
   display: flex;
@@ -191,7 +191,7 @@ html, body, #root, .main-page, .router-page {
   margin: 0 5px;
   padding: 0;
   background: none;
-  color: #666666;
+  color: #f9f9f9;
   cursor: pointer;
 }
 .chart-section .chart-section-title .chart-func-btn:hover {
@@ -250,7 +250,18 @@ html, body, #root, .main-page, .router-page {
   border: 1px solid #d9d9d9;
   box-sizing: border-box;
   padding: 5px;
+  background: #f9f9f9;
+}
+.chart-block .chart-block-body:hover {
   background: #ffffff;
+  border: 2px solid orange;
+  box-sizing: border-box;
+}
+.chart-block .chart-block-body:hover .qv-object-title {
+  background: orange;
+}
+.chart-block .chart-block-body:hover .qv-object-title .qv-object-title-text {
+  color: #ffffff;
 }
 .chart-block .chart-block-body.chart-kpi {
   background: #FCF3CF;

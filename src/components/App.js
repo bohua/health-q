@@ -43,6 +43,27 @@ class App extends Component {
             profile: localStorage.getItem('profile') || "application"
         };
 
+        window.numeral.register('locale', 'fr', {
+            delimiters: {
+                thousands: ' ',
+                decimal: ','
+            },
+            abbreviations: {
+                thousand: 'k',
+                million: 'm',
+                billion: 'b',
+                trillion: 't'
+            },
+            ordinal: function (number) {
+                return number === 1 ? 'er' : 'ème';
+            },
+            currency: {
+                symbol: '$'
+            }
+        });
+
+        window.numeral.locale('fr');
+
         this._pageScroller = null;
     }
 
@@ -51,7 +72,7 @@ class App extends Component {
     };
 
     PageOnChange = (number) => {
-        if (this.state.dataModel.layout[number]) {
+        if (this.state.dataModel.layout[number - 1]) {
             this.setState({currentSection: this.state.dataModel.layout[number - 1]});
         }
     };
@@ -78,14 +99,22 @@ class App extends Component {
     };
 
     handleMenuNav = (section) => {
-        this.setState({userEl: null, currentSection: section});
+        //this.setState({userEl: null, currentSection: section});
 
         this.goToPage(this.state.dataModel.layout.indexOf(section));
     };
 
     kpiNav = (number) => {
-        this.setState({currentSection: this.state.dataModel.layout[number]});
-        this.goToPage(number);
+        //this.setState({currentSection: this.state.dataModel.layout[number]});
+        this.goToPage(this.state.dataModel.layout.indexOf(this.state.dataModel.layout[number]));
+
+        //
+        // var that = this;
+        //
+        // setTimeout(()=>{
+        //
+        // });
+
     };
 
     handleUserOpen = event => {

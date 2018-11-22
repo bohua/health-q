@@ -14,13 +14,14 @@
     "AvgCostByDRG": "QXSnpg",
     "CostDistributionByAge": "pmrbAms",
     "DRG": "JZddJk",
-    "EpisodeByAdmissionCategory": "RJMcAcm",
-    "NumberOfEpisode": "mNjSAp",
+    "EpisodeByAdmissionCategory": "ePNfbJn",
+    "NumberOfEpisode": "sJcqjRu",
     "NumOfEpisodes": "HXjA",
     "ClinicalALOS": "SurVa",
     "AvgCostPerEncounter": "CYpaDD",
     "TopFive": "QJXCxg",
     "BottomFive": "fgbmZ",
+    "ClinicalTable": "xPbLdps",
     "CostDistributionByDRG": "PJnzR",
     "CostDistributionByAge2": "mPcdLa",
     "TrajectorySankey": "HSmpBg",
@@ -45,7 +46,7 @@
           "id": "Benchmarking",
           "icon": "monetization_on",
           "prefix": "Coût total",
-          "format": "(0.00 a $)",
+          "format": "(0,0[.]00 a $)",
           "title": "Étalonnage",
           "subtitle": "2016-17",
           "colorScheme": "color-1",
@@ -65,7 +66,7 @@
           "icon": "public",
           "prefix": "Nombre d'épisode",
           "format": "(0.00 a)",
-          "title": "Geospatial",
+          "title": "Géospatial",
           "subtitle": "2016-17",
           "colorScheme": "color-3",
           "href": "4"
@@ -74,19 +75,10 @@
           "id": "TrajectoryOfCare",
           "icon": "face",
           "value": "none",
-          "title": "Flux d’episodes",
+          "title": "Flux d’épisode",
           "subtitle": "2016-17",
           "colorScheme": "color-1",
           "href": "3"
-        },
-        {
-          "id": "SafetyQuality",
-          "icon": "lock",
-          "value": "none",
-          "title": "Sécurité et qualité",
-          "subtitle": "2016-17",
-          "colorScheme": "color-2",
-          "href": "5"
         },
         {
           "id": "CostProfile",
@@ -95,7 +87,7 @@
           "title": "Profil de coût",
           "subtitle": "2016-17",
           "colorScheme": "color-1",
-          "href": "6"
+          "href": "5"
         },
         {
           "id": "Reports",
@@ -104,7 +96,7 @@
           "title": "Rapport",
           "subtitle": "2016-17",
           "colorScheme": "color-3",
-          "href": "7"
+          "href": "6"
         },
         {
           "id": "Admin",
@@ -112,7 +104,16 @@
           "value": "none",
           "title": "Admin",
           "subtitle": "Vue administrateur",
-          "colorScheme": "color-4"
+          "colorScheme": "color-4",
+          "action": "admin"
+        },
+        {
+          "id": "SafetyQuality",
+          "icon": "lock",
+          "value": "none",
+          "title": "Sécurité et qualité",
+          "subtitle": "2016-17",
+          "colorScheme": "color-2"
         },
         {
           "id": "DataQuality",
@@ -186,7 +187,7 @@
       "charts": [
         {
           "id": "BenchmarkingALOS",
-          "title": "DMS (jour)",
+          "title": "DMS (jours)",
           "width": "0.2",
           "height": "0.1",
           "top": "0",
@@ -281,8 +282,8 @@
       "title": "Variation clinique",
       "charts": [
         {
-          "id": "NumOfEpisodes",
-          "title": "Nombre d'épisode",
+          "id": "ClinicalALOS",
+          "title": "DMS (jours)",
           "top": "0",
           "left": "0",
           "width": "0.2",
@@ -290,8 +291,8 @@
           "extraClass": "chart-kpi"
         },
         {
-          "id": "ClinicalALOS",
-          "title": "DMS (jour)",
+          "id": "NumOfEpisodes",
+          "title": "Nombre d'épisode",
           "top": "0",
           "left": "0.2",
           "width": "0.2",
@@ -321,15 +322,15 @@
           "top": "0",
           "left": "0.6",
           "width": "0.4",
-          "height": "0.5"
+          "height": "0.4"
         },
         {
           "id": "BottomFive",
           "title": "none",
-          "top": "0.5",
+          "top": "0.4",
           "left": "0.6",
           "width": "0.4",
-          "height": "0.5"
+          "height": "0.6"
         },
         {
           "id": "CostDistributionByAge2",
@@ -375,7 +376,7 @@
     },
     {
       "id": "trajectory-of-care-section",
-      "title": "Flux d’episodes",
+      "title": "Flux d’épisode",
       "charts": [
         {
           "id": "TrajectorySankey",
@@ -415,7 +416,7 @@
     },
     {
       "id": "geospatial-wip-section",
-      "title": "Geospatial",
+      "title": "Géospatial",
       "charts": [
         {
           "id": "WIPMap",
@@ -444,11 +445,6 @@
           "value": "d"
         }
       ]
-    },
-    {
-      "id": "safety-quality-section",
-      "title": "Sécurité et qualité",
-      "charts": []
     },
     {
       "id": "cost-profile-section",

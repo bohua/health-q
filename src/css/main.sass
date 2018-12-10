@@ -189,10 +189,10 @@ html, body, #root, .main-page, .router-page
         border-radius: 20px
         padding: 5px 20px
         margin: 0 5px
-        .msr-chip
-          height: 24px
+
+        .selection-chip
           background-color: $color-red-light
-          margin: 0 3px
+
           &.active
             color: $color-light
             background: $color-red
@@ -202,10 +202,10 @@ html, body, #root, .main-page, .router-page
         border-radius: 20px
         padding: 5px 20px
         margin: 0 5px
-        .dim-chip
-          height: 24px
+
+        .selection-chip
           background-color: $color-green-light
-          margin: 0 3px
+
           &.active
             color: $color-light
             background: $color-green
@@ -213,6 +213,13 @@ html, body, #root, .main-page, .router-page
   .chart-section-body
     position: relative
     padding: 2.5px
+
+.selection-chip
+  height: 24px
+  font-size: 10px!important
+  min-height: 20px!important
+  padding: 0 10px !important
+  margin: 0 2px !important
 
 .chart-block
   position: absolute

@@ -4,18 +4,27 @@
   "kpis": {
     "Benchmarking": "JWRPZFv",
     "ClinicalVariation": "SurVa",
-    "Geospatial": "HXjA"
+    "Geospatial": "HXjA",
+    "DataQuality": "Ltbfp"
   },
   "charts": {
     "Filter": "ScFd",
+    "PropreGroupe": "pusgnwY",
+    "CompGroupe": "hWgzdJJ",
     "BenchmarkingALOS": "hXMJGp",
+    "BenchmarkingALOS_Comp": "hXMJGp",
     "TotalCost": "JWRPZFv",
+    "TotalCost_Comp": "JWRPZFv",
     "AvgCost": "jQMmEsB",
-    "AvgCostByDRG": "QXSnpg",
-    "CostDistributionByAge": "pmrbAms",
+    "AvgCost_Comp": "jQMmEsB",
     "DRG": "JZddJk",
+    "DRG_A": "e9018fff-82d9-4078-ad6c-7530edc4d5b3",
     "EpisodeByAdmissionCategory": "ePNfbJn",
+    "EpisodeByAdmissionCategory_A": "5e7bc62c-e8a8-4269-b19f-8258ba9a8462",
     "NumberOfEpisode": "sJcqjRu",
+    "NumberOfEpisode_A": "e992e25f-4610-45b9-ad68-97fba83fe8f9",
+    "AvgCostByDRG": "QXSnpg",
+    "AvgCostByDRG_A": "9b8b2bfb-ae91-4905-b98f-34cfe9a60710",
     "NumOfEpisodes": "HXjA",
     "ClinicalALOS": "SurVa",
     "AvgCostPerEncounter": "CYpaDD",
@@ -23,18 +32,21 @@
     "BottomFive": "fgbmZ",
     "ClinicalTable": "xPbLdps",
     "CostDistributionByDRG": "PJnzR",
-    "CostDistributionByAge2": "mPcdLa",
+    "CostDistributionByAge": "mPcdLa",
     "TrajectorySankey": "HSmpBg",
     "TrajectoryLine": "qwccv",
     "WIPMap": "TcDBSbt",
     "Report": "JfPRup",
     "AvgCostByDischargeTime": "nRC",
     "DirectVsIndirectCost": "mvdA",
-    "CostBucket": "ckCwpj"
+    "CostBucket": "ckCwpj",
+    "DataQualityTable": "EWJmQpk",
+    "DataQualityBar": "CLNqDAM"
   },
   "variables": {
     "selectionMeasure": "Selection_Measure",
-    "selectionDimension": "Selection_Dim"
+    "selectionDimension": "Selection_Dim",
+    "EtallonageCase": "Etallonage_Case"
   },
   "bookmark": "f22c8631-aa4d-4be1-902d-6304f68dd868",
   "layout": [
@@ -86,8 +98,17 @@
           "value": "none",
           "title": "Profil de coût",
           "subtitle": "2016-17",
-          "colorScheme": "color-1",
+          "colorScheme": "color-2",
           "href": "5"
+        },
+        {
+          "id": "DataQuality",
+          "icon": "visibility",
+          "value": "none",
+          "title": "Data Quality",
+          "subtitle": "2016-17",
+          "colorScheme": "color-3",
+          "href": "6"
         },
         {
           "id": "Reports",
@@ -95,8 +116,8 @@
           "value": "none",
           "title": "Rapport",
           "subtitle": "2016-17",
-          "colorScheme": "color-3",
-          "href": "6"
+          "colorScheme": "color-1",
+          "href": "7"
         },
         {
           "id": "Admin",
@@ -186,47 +207,104 @@
       "title": "Étalonnage",
       "charts": [
         {
-          "id": "BenchmarkingALOS",
-          "title": "DMS (jours)",
-          "width": "0.2",
+          "id": "PropreGroupe",
+          "width": "0.15",
           "height": "0.1",
           "top": "0",
-          "left": "0",
+          "left": "0"
+        },
+        {
+          "id": "BenchmarkingALOS",
+          "title": "DMS (jours)",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.15",
           "extraClass": "chart-kpi"
         },
         {
           "id": "TotalCost",
           "title": "Coût total",
-          "width": "0.2",
-          "top": "0",
-          "left": "0.2",
+          "width": "0.15",
           "height": "0.1",
+          "top": "0",
+          "left": "0.3",
           "extraClass": "chart-kpi"
         },
         {
           "id": "AvgCost",
           "title": "Coût moyen par épisode",
-          "top": "0",
-          "left": "0.4",
-          "width": "0.2",
+          "width": "0.15",
           "height": "0.1",
+          "top": "0",
+          "left": "0.45",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "CompGroupe",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0"
+        },
+        {
+          "id": "BenchmarkingALOS_Comp",
+          "title": "DMS (jours)",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.15",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "TotalCost_Comp",
+          "title": "Coût total",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.3",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "AvgCost_Comp",
+          "title": "Coût moyen par épisode",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.45",
           "extraClass": "chart-kpi"
         },
         {
           "id": "DRG",
           "title": "DRG",
+          "width": "0.4",
+          "height": "0.55",
+          "top": "0",
+          "left": "0.6"
+        },
+        {
+          "id": "DRG_A",
+          "title": "DRG",
+          "width": "0.4",
+          "height": "0.55",
           "top": "0",
           "left": "0.6",
-          "width": "0.4",
-          "height": "0.55"
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "A"
+          }
         },
         {
           "id": "EpisodeByAdmissionCategory",
           "title": "Épisode par catégorie d'admission",
-          "top": "0.1",
+          "top": "0.2",
           "left": "0",
           "width": "0.6",
-          "height": "0.45"
+          "height": "0.35",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "O"
+          }
         },
         {
           "id": "NumberOfEpisode",
@@ -234,7 +312,11 @@
           "top": "0.55",
           "left": "0",
           "width": "0.6",
-          "height": "0.45"
+          "height": "0.45",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "O"
+          }
         },
         {
           "id": "AvgCostByDRG",
@@ -242,38 +324,81 @@
           "top": "0.55",
           "left": "0.6",
           "width": "0.4",
-          "height": "0.45"
+          "height": "0.45",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "O"
+          }
         }
-      ],      "measure": [
-      {
-        "label": "DMS",
-        "value": "a"
-      },
-      {
-        "label": "Nombre d'épisode",
-        "value": "b"
-      },
-      {
-        "label": "Coût total",
-        "value": "c"
-      },
-      {
-        "label": "Coût moyen",
-        "value": "d"
-      }
-    ],
-      "dimension": [
+      ],
+      "measure": [
         {
-          "label": "DRG",
+          "label": "DMS",
           "value": "a"
         },
         {
-          "label": "Groupe d'âge",
+          "label": "Nombre d'épisode",
           "value": "b"
         },
         {
-          "label": "Installation",
+          "label": "Coût total",
           "value": "c"
+        },
+        {
+          "label": "Coût moyen",
+          "value": "d"
+        }
+      ],
+      "dimension": [
+        {
+          "label": "DRG",
+          "value": "a1",
+          "alt": [
+            {
+              "label": "DRG Desc",
+              "value": "a2"
+            }
+          ]
+        },
+        {
+          "label": "Establishment",
+          "value": "b1",
+          "alt": [
+            {
+              "label": "Establishment Desc",
+              "value": "b2"
+            }
+          ]
+        },
+        {
+          "label": "Installation",
+          "value": "c1",
+          "alt": [
+            {
+              "label": "Installation Desc",
+              "value": "c2"
+            }
+          ]
+        },
+        {
+          "label": "Encounter Type",
+          "value": "d1",
+          "alt": [
+            {
+              "label": "Encounter Type Desc",
+              "value": "d2"
+            }
+          ]
+        },
+        {
+          "label": "Encounter Category",
+          "value": "e1",
+          "alt": [
+            {
+              "label": "Encounter Category Desc",
+              "value": "e2"
+            }
+          ]
         }
       ]
     },
@@ -333,7 +458,7 @@
           "height": "0.6"
         },
         {
-          "id": "CostDistributionByAge2",
+          "id": "CostDistributionByAge",
           "title": "none",
           "top": "0.4",
           "left": "0",
@@ -407,8 +532,8 @@
         {
           "label": "Coût total",
           "value": "c"
-        }
-      ,{
+        },
+        {
           "label": "Coût moyen",
           "value": "d"
         }
@@ -457,15 +582,39 @@
           "left": "0",
           "width": "0.7",
           "height": "0.5"
-        },{
+        },
+        {
           "id": "DirectVsIndirectCost",
           "title": "none",
           "top": "0",
           "left": "0.7",
           "width": "0.3",
           "height": "0.5"
-        }, {
+        },
+        {
           "id": "CostBucket",
+          "title": "none",
+          "top": "0.5",
+          "left": "0",
+          "width": "1",
+          "height": "0.5"
+        }
+      ]
+    },
+    {
+      "id": "data-quality-section",
+      "title": "Data Quality",
+      "charts": [
+        {
+          "id": "DataQualityBar",
+          "title": "none",
+          "top": "0",
+          "left": "0",
+          "width": "1",
+          "height": "0.5"
+        },
+        {
+          "id": "DataQualityTable",
           "title": "none",
           "top": "0.5",
           "left": "0",

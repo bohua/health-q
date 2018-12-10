@@ -208,12 +208,10 @@ html, body, #root, .main-page, .router-page {
   padding: 5px 20px;
   margin: 0 5px;
 }
-.chart-section .chart-section-title .chart-selection-bar .measure .msr-chip {
-  height: 24px;
+.chart-section .chart-section-title .chart-selection-bar .measure .selection-chip {
   background-color: rgba(206, 78, 90, 0.3);
-  margin: 0 3px;
 }
-.chart-section .chart-section-title .chart-selection-bar .measure .msr-chip.active {
+.chart-section .chart-section-title .chart-selection-bar .measure .selection-chip.active {
   color: #f9f9f9;
   background: #ce4e5a;
 }
@@ -223,18 +221,24 @@ html, body, #root, .main-page, .router-page {
   padding: 5px 20px;
   margin: 0 5px;
 }
-.chart-section .chart-section-title .chart-selection-bar .dimension .dim-chip {
-  height: 24px;
+.chart-section .chart-section-title .chart-selection-bar .dimension .selection-chip {
   background-color: rgba(78, 206, 201, 0.3);
-  margin: 0 3px;
 }
-.chart-section .chart-section-title .chart-selection-bar .dimension .dim-chip.active {
+.chart-section .chart-section-title .chart-selection-bar .dimension .selection-chip.active {
   color: #f9f9f9;
   background: #4ecec9;
 }
 .chart-section .chart-section-body {
   position: relative;
   padding: 2.5px;
+}
+
+.selection-chip {
+  height: 24px;
+  font-size: 10px !important;
+  min-height: 20px !important;
+  padding: 0 10px !important;
+  margin: 0 2px !important;
 }
 
 .chart-block {

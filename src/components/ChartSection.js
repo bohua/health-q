@@ -6,6 +6,7 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import DownloadDialog from './DownloadDialog'
 import Chip from '@material-ui/core/Chip'
+import SelectionChip from './SelectionChip';
 
 class ChartSection extends Component {
     constructor(props) {
@@ -74,11 +75,12 @@ class ChartSection extends Component {
                                     const dim = dataModel.variables["selectionDimension"];
 
                                     return (
-                                        <Chip label={chip.label} variant="outlined"
-                                              className={dim === chip.value ? "active dim-chip" : "dim-chip"}
-                                              onClick={() => changeVariable("selectionDimension", chip.value)}
-                                              key={chip.label}
-                                        ></Chip>
+                                        <SelectionChip
+                                            data={chip}
+                                            onChange={changeVariable}
+                                            variable={{name: "selectionDimension", value: dim}}
+                                            key={chip.label}
+                                        ></SelectionChip>
                                     )
                                 })}
                             </div> : null
@@ -90,11 +92,12 @@ class ChartSection extends Component {
                                 {measure.map(chip => {
                                     const msr = dataModel.variables["selectionMeasure"];
                                     return (
-                                        <Chip label={chip.label} variant="outlined"
-                                              className={msr === chip.value ? "active msr-chip" : "msr-chip"}
-                                              onClick={() => changeVariable("selectionMeasure", chip.value)}
-                                              key={chip.label}
-                                        ></Chip>
+                                        <SelectionChip
+                                            data={chip}
+                                            onChange={changeVariable}
+                                            variable={{name: "selectionMeasure", value: msr}}
+                                            key={chip.label}
+                                        ></SelectionChip>
                                     )
                                 })}
                             </div> : null
@@ -133,7 +136,8 @@ class ChartSection extends Component {
                 </div>
                 <div className="chart-section-body" style={{height: window.innerHeight - 154}}>
                     {charts.map((chart) => (
-                        <ChartBlock {...chart} key={chart.id} dataModel={this.props.dataModel} toRender={this.props.toRender}/>
+                        <ChartBlock {...chart} key={chart.id} dataModel={this.props.dataModel}
+                                    toRender={this.props.toRender}/>
                     ))}
 
                     {charts.length < 1 ? <img className="placeholder" src={placeHolder} alt="placeholder"

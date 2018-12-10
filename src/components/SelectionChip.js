@@ -70,7 +70,7 @@ class SelectionChip extends Component {
     render() {
         const dropDown = (
             <PopupState variant="popover"
-                        popupId={"demo-popup-menu" + "-" + this.props.data.label + "-" + Math.random()}
+                        popupId={`demo-popup-menu-${this.props.data.label}-${Math.random().toString()}`}
 
             >
                 {popupState => (

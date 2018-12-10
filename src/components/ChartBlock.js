@@ -14,7 +14,14 @@ class ChartBlock extends Component {
     componentDidUpdate() {
         const {dataModel, id} = this.props;
 
+        console.log(id);
+
+        console.log("rendered:", this.state.rendered);
+        console.log("toRender:", this.props.toRender);
+
         if (!this.state.rendered && this.props.toRender) {
+            console.log("update!")
+
             if (!!dataModel[id]) {
                 dataModel[id].show(id);
             } else {
@@ -23,6 +30,8 @@ class ChartBlock extends Component {
 
             this.setState({rendered: true});
         }
+
+        console.log("nope!")
     }
 
     render() {
@@ -31,6 +40,7 @@ class ChartBlock extends Component {
         return (
             <div className="chart-block"
                  style={{
+                     display: this.props.toRender ? 'block' : "none",
                      width: isNaN(width) ? width : (window.innerWidth) * (width || 0.5),
                      height: isNaN(height) ? height : (window.innerHeight - 156) * (height || 0.5),
                      top: isNaN(top) ? top : (window.innerHeight - 156) * (top || 0.5),

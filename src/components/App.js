@@ -40,7 +40,10 @@ class App extends Component {
             showFilter: false,
             userEl: null,
             currentSection: null,
-            profile: localStorage.getItem('profile') || "application"
+            profile: localStorage.getItem('profile') || "application",
+            conditions: {
+                "EtallonageCase": "O"
+            }
         };
 
         window.numeral.register('locale', 'fr', {
@@ -81,13 +84,27 @@ class App extends Component {
         let that = this;
         this.setState({
             dataModel,
-            loaded: true
+            loaded: true,
+            conditions: {"EtallonageCase": dataModel.variables["EtallonageCase"]}
         });
         setTimeout(() => {
-            that.setState(({...that.state, showPage: true}));
+            that.setState({...that.state, showPage: true});
 
             dataModel.currApp.getObject('CurrentSelections', 'CurrentSelections');
         }, 500);
+
+        let selState = dataModel.currApp.selectionState();
+        let listener = function () {
+            that.state.dataModel.qlikObjService.getVariable("EtallonageCase").then((variable) => {
+                console.log(variable);
+
+                if (variable.value !== that.state.conditions["EtallonageCase"]) {
+                    that.setState({conditions: {"EtallonageCase": variable.value}, conditionChangedFlag: true});
+                }
+            });
+        };
+        //bind the listener
+        selState.OnData.bind(listener);
     };
 
     handleFilterOpen = () => {
@@ -153,7 +170,6 @@ class App extends Component {
 
         this.state.dataModel.qlikObjService.setVariable(name, value);
         this.setState(state);
-
     };
 
     render() {
@@ -327,7 +343,8 @@ class App extends Component {
                                             let toRender = false;
                                             if (this.state.profile === "admin") {
                                                 toRender = true;
-                                            } else if (this.state.currentSection) {
+                                            }
+                                            else if (this.state.currentSection) {
                                                 toRender = this.state.currentSection.id === section.id;
                                             }
 
@@ -339,6 +356,7 @@ class App extends Component {
                                                               dataModel={this.state.dataModel}
                                                               changeVariable={this.changeVariable.bind(this)}
                                                               toRender={toRender}
+                                                              conditions={this.state.conditions}
                                                 />
                                             )
                                         }

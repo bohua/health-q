@@ -1,5 +1,5 @@
 {
-  "appid": "7d854797-c9d5-44e9-8e22-3014f2f18fcc",
+  "appid": "4a9e710f-ff63-4c65-95a3-6fa4bcf69369",
   "adminid": "9747424a-c99f-4660-9d90-bafcd61ec5fa",
   "kpis": {
     "Benchmarking": "JWRPZFv",
@@ -18,13 +18,21 @@
     "AvgCost": "jQMmEsB",
     "AvgCost_Comp": "jQMmEsB",
     "DRG": "JZddJk",
-    "DRG_A": "e9018fff-82d9-4078-ad6c-7530edc4d5b3",
     "EpisodeByAdmissionCategory": "ePNfbJn",
-    "EpisodeByAdmissionCategory_A": "5e7bc62c-e8a8-4269-b19f-8258ba9a8462",
     "NumberOfEpisode": "sJcqjRu",
-    "NumberOfEpisode_A": "e992e25f-4610-45b9-ad68-97fba83fe8f9",
     "AvgCostByDRG": "QXSnpg",
+    "DRG_A": "e9018fff-82d9-4078-ad6c-7530edc4d5b3",
+    "EpisodeByAdmissionCategory_A": "5e7bc62c-e8a8-4269-b19f-8258ba9a8462",
+    "NumberOfEpisode_A": "e992e25f-4610-45b9-ad68-97fba83fe8f9",
     "AvgCostByDRG_A": "9b8b2bfb-ae91-4905-b98f-34cfe9a60710",
+    "DRG_U": "f6c22a3c-7461-496a-8acc-f885d95ef9b4",
+    "EpisodeByAdmissionCategory_U": "81ee46e3-98e0-47f2-a09a-f070850521b2",
+    "NumberOfEpisode_U": "8209bab7-1303-4084-8660-a2f08f7ad884",
+    "AvgCostByDRG_U": "a7523a77-30c9-49c6-b217-373bc4bdf863",
+    "DRG_E": "235f7538-d293-429d-81b0-df1057fedfd9",
+    "EpisodeByAdmissionCategory_E": "6bc524d0-6836-46ef-8c47-c2299866fbcc",
+    "NumberOfEpisode_E": "1c1bfad5-f57a-421c-8f50-1c80bc088c44",
+    "AvgCostByDRG_E": "f498c87f-45cf-469b-907a-39347f17cbe9",
     "NumOfEpisodes": "HXjA",
     "ClinicalALOS": "SurVa",
     "AvgCostPerEncounter": "CYpaDD",
@@ -280,18 +288,10 @@
           "width": "0.4",
           "height": "0.55",
           "top": "0",
-          "left": "0.6"
-        },
-        {
-          "id": "DRG_A",
-          "title": "DRG",
-          "width": "0.4",
-          "height": "0.55",
-          "top": "0",
           "left": "0.6",
           "condition": {
             "variable": "EtallonageCase",
-            "value": "A"
+            "value": "O"
           }
         },
         {
@@ -328,6 +328,150 @@
           "condition": {
             "variable": "EtallonageCase",
             "value": "O"
+          }
+        },
+        {
+          "id": "DRG_A",
+          "title": "DRG",
+          "width": "0.4",
+          "height": "0.55",
+          "top": "0",
+          "left": "0.6",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "A"
+          }
+        },
+        {
+          "id": "EpisodeByAdmissionCategory_A",
+          "title": "Épisode par catégorie d'admission",
+          "top": "0.2",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.35",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "A"
+          }
+        },
+        {
+          "id": "NumberOfEpisode_A",
+          "title": "Nombre d'épisode",
+          "top": "0.55",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.45",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "A"
+          }
+        },
+        {
+          "id": "AvgCostByDRG_A",
+          "title": "Coût moyen par DRG",
+          "top": "0.55",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.45",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "A"
+          }
+        },
+        {
+          "id": "DRG_U",
+          "title": "DRG",
+          "width": "0.4",
+          "height": "0.55",
+          "top": "0",
+          "left": "0.6",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "U"
+          }
+        },
+        {
+          "id": "EpisodeByAdmissionCategory_U",
+          "title": "Épisode par catégorie d'admission",
+          "top": "0.2",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.35",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "U"
+          }
+        },
+        {
+          "id": "NumberOfEpisode_U",
+          "title": "Nombre d'épisode",
+          "top": "0.55",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.45",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "U"
+          }
+        },
+        {
+          "id": "AvgCostByDRG_U",
+          "title": "Coût moyen par DRG",
+          "top": "0.55",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.45",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "U"
+          }
+        },
+        {
+          "id": "DRG_E",
+          "title": "DRG",
+          "width": "0.4",
+          "height": "0.55",
+          "top": "0",
+          "left": "0.6",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "E"
+          }
+        },
+        {
+          "id": "EpisodeByAdmissionCategory_E",
+          "title": "Épisode par catégorie d'admission",
+          "top": "0.2",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.35",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "E"
+          }
+        },
+        {
+          "id": "NumberOfEpisode_E",
+          "title": "Nombre d'épisode",
+          "top": "0.55",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.45",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "E"
+          }
+        },
+        {
+          "id": "AvgCostByDRG_E",
+          "title": "Coût moyen par DRG",
+          "top": "0.55",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.45",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "E"
           }
         }
       ],

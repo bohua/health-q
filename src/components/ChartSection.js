@@ -2,10 +2,9 @@ import React, {Component} from 'react';
 import ChartBlock from './ChartBlock';
 import placeHolder from "../images/placeholder.png";
 import Icon from '@material-ui/core/Icon'
-import Menu from '@material-ui/core/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
+// import Menu from '@material-ui/core/Menu'
+// import MenuItem from '@material-ui/core/MenuItem'
 import DownloadDialog from './DownloadDialog'
-import Chip from '@material-ui/core/Chip'
 import SelectionChip from './SelectionChip';
 
 class ChartSection extends Component {
@@ -55,13 +54,13 @@ class ChartSection extends Component {
     }
 
     render() {
-        const {id, charts, clearAll, measure, dimension, dataModel, changeVariable} = this.props;
-        const {anchorEl} = this.state;
-        let exportBtn = charts.length > 0 ? (
-            <a color="secondary" aria-label="Export" className="chart-func-btn"
-               aria-owns={anchorEl ? 'export-menu' : null}
-               aria-haspopup="true" onClick={this.handleExportOpen}><Icon>archive</Icon></a>
-        ) : null;
+        const {id, charts, clearAll, measure, dimension, dataModel, changeVariable, conditions} = this.props;
+        // const {anchorEl} = this.state;
+        // let exportBtn = charts.length > 0 ? (
+        //     <a color="secondary" aria-label="Export" className="chart-func-btn"
+        //        aria-owns={anchorEl ? 'export-menu' : null}
+        //        aria-haspopup="true" onClick={this.handleExportOpen}><Icon>archive</Icon></a>
+        // ) : null;
 
         return (
             <section id={id} className="chart-section">
@@ -108,10 +107,10 @@ class ChartSection extends Component {
                        onClick={this.props.backToHome}><Icon>reply</Icon></a>
                     <a color="secondary" aria-label="Refresh" className="chart-func-btn"
                        onClick={clearAll}><Icon>cached</Icon></a>
-                    {exportBtn}
+                    {/*{exportBtn}*/}
 
 
-                    <Menu id="export-menu"
+                    {/*<Menu id="export-menu"
                           anchorEl={anchorEl}
                           open={Boolean(anchorEl)}
                           onClose={this.handleExportClose}>
@@ -132,13 +131,33 @@ class ChartSection extends Component {
                             }
                         )}
 
-                    </Menu>
+                    </Menu>*/}
                 </div>
                 <div className="chart-section-body" style={{height: window.innerHeight - 154}}>
-                    {charts.map((chart) => (
-                        <ChartBlock {...chart} key={chart.id} dataModel={this.props.dataModel}
-                                    toRender={this.props.toRender}/>
-                    ))}
+                    {charts.map(
+                        (chart) => {
+                            if(chart.condition){
+                                let {variable, value} = chart.condition;
+
+                                console.log("condition_A_show:", chart.id)
+                                console.log("toRender:", this.props.toRender);
+
+                                if(conditions[variable] === value ){
+                                    return (<ChartBlock {...chart} key={chart.id} dataModel={this.props.dataModel}
+                                                        toRender={this.props.toRender}/>);
+                                }else{
+                                    return (<ChartBlock {...chart} key={chart.id} dataModel={this.props.dataModel}
+                                                        toRender={false}/>);
+                                }
+                            }else{
+                                console.log("condition_B_show:", chart.id)
+                                console.log("toRender:", this.props.toRender);
+
+                                return (<ChartBlock {...chart} key={chart.id} dataModel={this.props.dataModel}
+                                                    toRender={this.props.toRender}/>);
+                            }
+                        }
+                    )}
 
                     {charts.length < 1 ? <img className="placeholder" src={placeHolder} alt="placeholder"
                                               style={{height: window.innerHeight - 156}}/> : null}

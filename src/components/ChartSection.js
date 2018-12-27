@@ -54,7 +54,7 @@ class ChartSection extends Component {
     }
 
     render() {
-        const {id, charts, clearAll, measure, dimension, dataModel, changeVariable, conditions} = this.props;
+        const {id, charts, clearAll, measure, dimension, filter, dataModel, changeVariable, conditions} = this.props;
         // const {anchorEl} = this.state;
         // let exportBtn = charts.length > 0 ? (
         //     <a color="secondary" aria-label="Export" className="chart-func-btn"
@@ -102,6 +102,29 @@ class ChartSection extends Component {
                             </div> : null
                         }
 
+                        {(filter && filter.length > 0) ?
+                            <div className="filter">
+                                <a className="selection-title">Filter: </a>
+                                {
+                                    filter.map(flt => {
+                                        const dataModel = this.props.dataModel,
+                                            id = flt.id;
+
+                                        if(this.props.toRender){
+
+
+                                            if (!!dataModel[id]) {
+                                                dataModel[id].show(id);
+                                            } else {
+                                                dataModel.loadChart(id).then(chart => chart.show(id));
+                                            }
+                                        }
+
+                                        return (<div id={id} key={id} className="selection-chip"></div>);
+                                    })
+                                }
+                            </div> : null
+                        }
                     </div>
                     <a color="secondary" aria-label="Back To Top" className="chart-func-btn"
                        onClick={this.props.backToHome}><Icon>reply</Icon></a>
@@ -136,25 +159,22 @@ class ChartSection extends Component {
                 <div className="chart-section-body" style={{height: window.innerHeight - 154}}>
                     {charts.map(
                         (chart) => {
-                            if(chart.condition){
+                            if (chart.condition) {
                                 let {variable, value} = chart.condition;
 
-                                console.log("condition_A_show:", chart.id)
-                                console.log("toRender:", this.props.toRender);
-
-                                if(conditions[variable] === value ){
+                                if (conditions[variable] === value) {
                                     return (<ChartBlock {...chart} key={chart.id} dataModel={this.props.dataModel}
-                                                        toRender={this.props.toRender}/>);
-                                }else{
+                                                        toRender={this.props.toRender}
+                                                        handleShowChartSingle={this.props.handleShowChartSingle}/>);
+                                } else {
                                     return (<ChartBlock {...chart} key={chart.id} dataModel={this.props.dataModel}
-                                                        toRender={false}/>);
+                                                        toRender={false}
+                                                        handleShowChartSingle={this.props.handleShowChartSingle}/>);
                                 }
-                            }else{
-                                console.log("condition_B_show:", chart.id)
-                                console.log("toRender:", this.props.toRender);
-
+                            } else {
                                 return (<ChartBlock {...chart} key={chart.id} dataModel={this.props.dataModel}
-                                                    toRender={this.props.toRender}/>);
+                                                    toRender={this.props.toRender}
+                                                    handleShowChartSingle={this.props.handleShowChartSingle}/>);
                             }
                         }
                     )}

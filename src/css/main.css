@@ -205,7 +205,7 @@ html, body, #root, .main-page, .router-page {
 .chart-section .chart-section-title .chart-selection-bar .measure {
   background: #e8e8e8;
   border-radius: 20px;
-  padding: 5px 20px;
+  padding: 2px 20px;
   margin: 0 5px;
 }
 .chart-section .chart-section-title .chart-selection-bar .measure .selection-chip {
@@ -218,7 +218,7 @@ html, body, #root, .main-page, .router-page {
 .chart-section .chart-section-title .chart-selection-bar .dimension {
   background: #e8e8e8;
   border-radius: 20px;
-  padding: 5px 20px;
+  padding: 2px 20px;
   margin: 0 5px;
 }
 .chart-section .chart-section-title .chart-selection-bar .dimension .selection-chip {
@@ -228,16 +228,31 @@ html, body, #root, .main-page, .router-page {
   color: #f9f9f9;
   background: #4ecec9;
 }
+.chart-section .chart-section-title .chart-selection-bar .filter {
+  background: #e8e8e8;
+  border-radius: 20px;
+  padding: 2px 20px;
+  margin: 0 5px;
+  display: flex;
+}
+.chart-section .chart-section-title .chart-selection-bar .filter .selection-title {
+  padding-top: 10px;
+}
+.chart-section .chart-section-title .chart-selection-bar .filter .selection-chip {
+  min-width: 120px;
+}
+.chart-section .chart-section-title .chart-selection-bar .filter .selection-chip .title-wrapper {
+  background-color: #C39BD3;
+}
 .chart-section .chart-section-body {
   position: relative;
   padding: 2.5px;
 }
 
 .selection-chip {
-  height: 24px;
+  height: 35px;
   font-size: 10px !important;
   min-height: 20px !important;
-  padding: 0 10px !important;
   margin: 0 2px !important;
 }
 
@@ -248,6 +263,28 @@ html, body, #root, .main-page, .router-page {
   padding: 2.5px;
   box-sizing: border-box;
 }
+.chart-block:hover {
+  background: #ffffff;
+  border: 2px solid orange;
+  box-sizing: border-box;
+}
+.chart-block:hover .qv-object-title .qv-object-title-text {
+  color: orange;
+}
+.chart-block:hover .chart-block-header {
+  display: block;
+}
+.chart-block .chart-block-header {
+  position: absolute;
+  text-align: right;
+  width: calc(100% - 10px);
+  padding-top: 2px;
+  z-index: 9999;
+  display: none;
+}
+.chart-block .chart-block-header .chart-block-max-btn {
+  background: orange;
+}
 .chart-block .chart-block-body {
   width: 100%;
   height: 100%;
@@ -256,19 +293,47 @@ html, body, #root, .main-page, .router-page {
   padding: 5px;
   background: #f9f9f9;
 }
-.chart-block .chart-block-body:hover {
-  background: #ffffff;
-  border: 2px solid orange;
-  box-sizing: border-box;
-}
-.chart-block .chart-block-body:hover .qv-object-title {
-  background: orange;
-}
-.chart-block .chart-block-body:hover .qv-object-title .qv-object-title-text {
-  color: #ffffff;
-}
 .chart-block .chart-block-body.chart-kpi {
   background: #FCF3CF;
+}
+.chart-block .chart-block-body.chart-kpi-2 {
+  background: #AED6F1;
+}
+
+.chart-single {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+.chart-single.hide {
+  display: none;
+}
+.chart-single.show {
+  display: block;
+}
+.chart-single .chart-single-inner {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  padding: 20px;
+}
+.chart-single .chart-single-inner .chart-single-header {
+  background: #2c2e36;
+  text-align: right;
+}
+.chart-single .chart-single-inner .chart-single-header .chart-single-close-btn {
+  color: #ffffff;
+}
+.chart-single .chart-single-inner .chart-single-body {
+  width: calc(100% - 40px);
+  height: calc(100% - 80px);
+  padding: 20px;
+  background: #ffffff;
+}
+.chart-single .chart-single-inner .chart-single-body #chart-single-previewer {
+  width: 100%;
+  height: 100%;
 }
 
 .placeholder {

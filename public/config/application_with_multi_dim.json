@@ -1,5 +1,5 @@
 {
-  "appid": "833afec3-8eb2-484c-816b-9ffaade26c0d",
+  "appid": "7d854797-c9d5-44e9-8e22-3014f2f18fcc",
   "adminid": "9747424a-c99f-4660-9d90-bafcd61ec5fa",
   "kpis": {
     "Benchmarking": "JWRPZFv",
@@ -10,32 +10,21 @@
   "charts": {
     "Filter": "ScFd",
     "PropreGroupe": "pusgnwY",
-    "PropreGroupe2": "ahgmJx",
     "CompGroupe": "hWgzdJJ",
-    "CompGroupe2": "JePyRt",
-    "BenchmarkingFilter1": "Mswvyb",
-    "BenchmarkingFilter2": "YBPK",
-    "BenchmarkingFilter3": "mxVTWt",
-    "BenchamrkingKpi_NumberOfEpisode": "dPwJmZy",
-    "BenchamrkingKpi_NumberOfEpisode_Comp": "TkpegM",
-    "BenchamrkingKpi_DMS": "hXMJGp",
-    "BenchamrkingKpi_DMS_Comp": "aVQjmEy",
-    "BenchamrkingKpi_TotalCost": "JWRPZFv",
-    "BenchamrkingKpi_TotalCost_Comp": "qYKDnLy",
-    "BenchamrkingKpi_TotalPerEpisode": "jQMmEsB",
-    "BenchamrkingKpi_TotalPerEpisode_Comp": "GmwpxU",
-    "BenchamrkingKpi_AverageSeverity": "WPEhDkK",
-    "BenchamrkingKpi_AverageSeverity_Comp": "TQgNdQ",
-    "BenchamrkingKpi_AverageAge": "jhkeN",
-    "BenchamrkingKpi_AverageAge_Comp": "kUKgPR",
+    "BenchmarkingALOS": "hXMJGp",
+    "BenchmarkingALOS_Comp": "hXMJGp",
+    "TotalCost": "JWRPZFv",
+    "TotalCost_Comp": "JWRPZFv",
+    "AvgCost": "jQMmEsB",
+    "AvgCost_Comp": "jQMmEsB",
     "DRG": "JZddJk",
     "EpisodeByAdmissionCategory": "ePNfbJn",
     "NumberOfEpisode": "sJcqjRu",
     "AvgCostByDRG": "QXSnpg",
-    "Benchmarking_1_A": "ePNfbJn",
-    "Benchmarking_2_A": "JZddJk",
-    "Benchmarking_3_A": "QXSnpg",
-    "Benchmarking_4_A": "sJcqjRu",
+    "DRG_A": "e9018fff-82d9-4078-ad6c-7530edc4d5b3",
+    "EpisodeByAdmissionCategory_A": "5e7bc62c-e8a8-4269-b19f-8258ba9a8462",
+    "NumberOfEpisode_A": "e992e25f-4610-45b9-ad68-97fba83fe8f9",
+    "AvgCostByDRG_A": "9b8b2bfb-ae91-4905-b98f-34cfe9a60710",
     "DRG_U": "f6c22a3c-7461-496a-8acc-f885d95ef9b4",
     "EpisodeByAdmissionCategory_U": "81ee46e3-98e0-47f2-a09a-f070850521b2",
     "NumberOfEpisode_U": "8209bab7-1303-4084-8660-a2f08f7ad884",
@@ -71,7 +60,7 @@
   "conditions":{
     "EtallonageCase": "jLbGRUf"
   },
-  "bookmark": "4743b942-2eee-4fe0-9943-05c46e369de4",
+  "bookmark": "f22c8631-aa4d-4be1-902d-6304f68dd868",
   "layout": [
     {
       "id": "dashboard-section",
@@ -231,151 +220,79 @@
       "charts": [
         {
           "id": "PropreGroupe",
-          "width": "0.1",
-          "height": "0.1",
-          "top": "0",
-          "left": "0",
-          "extraClass": "chart-kpi"
-        },
-        {
-          "id": "PropreGroupe2",
-          "width": "0.1",
-          "height": "0.1",
-          "top": "0",
-          "left": "0.1",
-          "extraClass": "chart-kpi"
-        },
-        {
-          "id": "BenchamrkingKpi_NumberOfEpisode",
-          "title": "",
-          "width": "0.13",
-          "height": "0.1",
-          "top": "0",
-          "left": "0.2",
-          "extraClass": "chart-kpi"
-        },
-        {
-          "id": "BenchamrkingKpi_DMS",
-          "title": "",
-          "width": "0.13",
-          "height": "0.1",
-          "top": "0",
-          "left": "0.33",
-          "extraClass": "chart-kpi"
-        },
-        {
-          "id": "BenchamrkingKpi_TotalCost",
-          "title": "",
-          "width": "0.13",
-          "height": "0.1",
-          "top": "0",
-          "left": "0.46",
-          "extraClass": "chart-kpi"
-        },
-        {
-          "id": "BenchamrkingKpi_TotalPerEpisode",
-          "title": "",
-          "width": "0.13",
-          "height": "0.1",
-          "top": "0",
-          "left": "0.59",
-          "extraClass": "chart-kpi"
-        },
-        {
-          "id": "BenchamrkingKpi_AverageSeverity",
-          "title": "",
-          "width": "0.13",
-          "height": "0.1",
-          "top": "0",
-          "left": "0.72",
-          "extraClass": "chart-kpi"
-        },
-        {
-          "id": "BenchamrkingKpi_AverageAge",
-          "title": "",
           "width": "0.15",
           "height": "0.1",
           "top": "0",
-          "left": "0.85",
+          "left": "0"
+        },
+        {
+          "id": "BenchmarkingALOS",
+          "title": "DMS (jours)",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.15",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "TotalCost",
+          "title": "Coût total",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.3",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "AvgCost",
+          "title": "Coût moyen par épisode",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.45",
           "extraClass": "chart-kpi"
         },
         {
           "id": "CompGroupe",
-          "width": "0.1",
-          "height": "0.1",
-          "top": "0.1",
-          "left": "0",
-          "extraClass": "chart-kpi-2"
-        },
-        {
-          "id": "CompGroupe2",
-          "width": "0.1",
-          "height": "0.1",
-          "top": "0.1",
-          "left": "0.1",
-          "extraClass": "chart-kpi-2"
-        },
-        {
-          "id": "BenchamrkingKpi_NumberOfEpisode_Comp",
-          "title": "",
-          "width": "0.13",
-          "height": "0.1",
-          "top": "0.1",
-          "left": "0.2",
-          "extraClass": "chart-kpi-2"
-        },
-        {
-          "id": "BenchamrkingKpi_DMS_Comp",
-          "title": "",
-          "width": "0.13",
-          "height": "0.1",
-          "top": "0.1",
-          "left": "0.33",
-          "extraClass": "chart-kpi-2"
-        },
-        {
-          "id": "BenchamrkingKpi_TotalCost_Comp",
-          "title": "",
-          "width": "0.13",
-          "height": "0.1",
-          "top": "0.1",
-          "left": "0.46",
-          "extraClass": "chart-kpi-2"
-        },
-        {
-          "id": "BenchamrkingKpi_TotalPerEpisode_Comp",
-          "title": "",
-          "width": "0.13",
-          "height": "0.1",
-          "top": "0.1",
-          "left": "0.59",
-          "extraClass": "chart-kpi-2"
-        },
-        {
-          "id": "BenchamrkingKpi_AverageSeverity_Comp",
-          "title": "",
-          "width": "0.13",
-          "height": "0.1",
-          "top": "0.1",
-          "left": "0.72",
-          "extraClass": "chart-kpi-2"
-        },
-        {
-          "id": "BenchamrkingKpi_AverageAge_Comp",
-          "title": "",
           "width": "0.15",
           "height": "0.1",
           "top": "0.1",
-          "left": "0.85",
-          "extraClass": "chart-kpi-2"
+          "left": "0"
+        },
+        {
+          "id": "BenchmarkingALOS_Comp",
+          "title": "DMS (jours)",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.15",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "TotalCost_Comp",
+          "title": "Coût total",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.3",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "AvgCost_Comp",
+          "title": "Coût moyen par épisode",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.45",
+          "extraClass": "chart-kpi"
         },
         {
           "id": "DRG",
           "title": "DRG",
-          "width": "0.5",
-          "height": "0.4",
-          "top": "0.2",
-          "left": "0.5",
+          "width": "0.4",
+          "height": "0.55",
+          "top": "0",
+          "left": "0.6",
           "condition": {
             "variable": "EtallonageCase",
             "value": "O"
@@ -384,10 +301,10 @@
         {
           "id": "EpisodeByAdmissionCategory",
           "title": "Épisode par catégorie d'admission",
-          "width": "0.5",
-          "height": "0.4",
           "top": "0.2",
           "left": "0",
+          "width": "0.6",
+          "height": "0.35",
           "condition": {
             "variable": "EtallonageCase",
             "value": "O"
@@ -396,10 +313,10 @@
         {
           "id": "NumberOfEpisode",
           "title": "Nombre d'épisode",
-          "width": "0.5",
-          "height": "0.4",
-          "top": "0.6",
+          "top": "0.55",
           "left": "0",
+          "width": "0.6",
+          "height": "0.45",
           "condition": {
             "variable": "EtallonageCase",
             "value": "O"
@@ -408,58 +325,58 @@
         {
           "id": "AvgCostByDRG",
           "title": "Coût moyen par DRG",
-          "width": "0.5",
-          "height": "0.4",
-          "top": "0.6",
-          "left": "0.5",
+          "top": "0.55",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.45",
           "condition": {
             "variable": "EtallonageCase",
             "value": "O"
           }
         },
         {
-          "id": "Benchmarking_1_A",
-          "title": "",
-          "width": "0.5",
-          "height": "0.4",
+          "id": "DRG_A",
+          "title": "DRG",
+          "width": "0.4",
+          "height": "0.55",
+          "top": "0",
+          "left": "0.6",
+          "condition": {
+            "variable": "EtallonageCase",
+            "value": "A"
+          }
+        },
+        {
+          "id": "EpisodeByAdmissionCategory_A",
+          "title": "Épisode par catégorie d'admission",
           "top": "0.2",
           "left": "0",
+          "width": "0.6",
+          "height": "0.35",
           "condition": {
             "variable": "EtallonageCase",
             "value": "A"
           }
         },
         {
-          "id": "Benchmarking_2_A",
-          "title": "",
-          "width": "0.5",
-          "height": "0.4",
-          "top": "0.2",
-          "left": "0.5",
-          "condition": {
-            "variable": "EtallonageCase",
-            "value": "A"
-          }
-        },
-        {
-          "id": "Benchmarking_3_A",
-          "title": "",
-          "width": "0.5",
-          "height": "0.4",
-          "top": "0.6",
+          "id": "NumberOfEpisode_A",
+          "title": "Nombre d'épisode",
+          "top": "0.55",
           "left": "0",
+          "width": "0.6",
+          "height": "0.45",
           "condition": {
             "variable": "EtallonageCase",
             "value": "A"
           }
         },
         {
-          "id": "Benchmarking_4_A",
-          "title": "",
-          "width": "0.5",
-          "height": "0.4",
-          "top": "0.6",
-          "left": "0.5",
+          "id": "AvgCostByDRG_A",
+          "title": "Coût moyen par DRG",
+          "top": "0.55",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.45",
           "condition": {
             "variable": "EtallonageCase",
             "value": "A"
@@ -468,10 +385,10 @@
         {
           "id": "DRG_U",
           "title": "DRG",
-          "width": "0.5",
-          "height": "0.4",
-          "top": "0.2",
-          "left": "0.5",
+          "width": "0.4",
+          "height": "0.55",
+          "top": "0",
+          "left": "0.6",
           "condition": {
             "variable": "EtallonageCase",
             "value": "U"
@@ -480,10 +397,10 @@
         {
           "id": "EpisodeByAdmissionCategory_U",
           "title": "Épisode par catégorie d'admission",
-          "width": "0.5",
-          "height": "0.4",
           "top": "0.2",
           "left": "0",
+          "width": "0.6",
+          "height": "0.35",
           "condition": {
             "variable": "EtallonageCase",
             "value": "U"
@@ -492,10 +409,10 @@
         {
           "id": "NumberOfEpisode_U",
           "title": "Nombre d'épisode",
-          "width": "0.5",
-          "height": "0.4",
-          "top": "0.6",
+          "top": "0.55",
           "left": "0",
+          "width": "0.6",
+          "height": "0.45",
           "condition": {
             "variable": "EtallonageCase",
             "value": "U"
@@ -504,10 +421,10 @@
         {
           "id": "AvgCostByDRG_U",
           "title": "Coût moyen par DRG",
-          "width": "0.5",
-          "height": "0.4",
-          "top": "0.6",
-          "left": "0.5",
+          "top": "0.55",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.45",
           "condition": {
             "variable": "EtallonageCase",
             "value": "U"
@@ -516,10 +433,10 @@
         {
           "id": "DRG_E",
           "title": "DRG",
-          "width": "0.5",
-          "height": "0.4",
-          "top": "0.2",
-          "left": "0.5",
+          "width": "0.4",
+          "height": "0.55",
+          "top": "0",
+          "left": "0.6",
           "condition": {
             "variable": "EtallonageCase",
             "value": "E"
@@ -528,10 +445,10 @@
         {
           "id": "EpisodeByAdmissionCategory_E",
           "title": "Épisode par catégorie d'admission",
-          "width": "0.5",
-          "height": "0.4",
           "top": "0.2",
           "left": "0",
+          "width": "0.6",
+          "height": "0.35",
           "condition": {
             "variable": "EtallonageCase",
             "value": "E"
@@ -540,10 +457,10 @@
         {
           "id": "NumberOfEpisode_E",
           "title": "Nombre d'épisode",
-          "width": "0.5",
-          "height": "0.4",
-          "top": "0.6",
+          "top": "0.55",
           "left": "0",
+          "width": "0.6",
+          "height": "0.45",
           "condition": {
             "variable": "EtallonageCase",
             "value": "E"
@@ -552,10 +469,10 @@
         {
           "id": "AvgCostByDRG_E",
           "title": "Coût moyen par DRG",
-          "width": "0.5",
-          "height": "0.4",
-          "top": "0.6",
-          "left": "0.5",
+          "top": "0.55",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.45",
           "condition": {
             "variable": "EtallonageCase",
             "value": "E"
@@ -578,21 +495,58 @@
         {
           "label": "Coût moyen",
           "value": "d"
-        },
-        {
-          "label": "Total de jours",
-          "value": "e"
         }
       ],
-      "filter": [
+      "dimension": [
         {
-          "id": "BenchmarkingFilter1"
+          "label": "DRG",
+          "value": "a1",
+          "alt": [
+            {
+              "label": "DRG Desc",
+              "value": "a2"
+            }
+          ]
         },
         {
-          "id": "BenchmarkingFilter2"
+          "label": "Establishment",
+          "value": "b1",
+          "alt": [
+            {
+              "label": "Establishment Desc",
+              "value": "b2"
+            }
+          ]
         },
         {
-          "id": "BenchmarkingFilter3"
+          "label": "Installation",
+          "value": "c1",
+          "alt": [
+            {
+              "label": "Installation Desc",
+              "value": "c2"
+            }
+          ]
+        },
+        {
+          "label": "Encounter Type",
+          "value": "d1",
+          "alt": [
+            {
+              "label": "Encounter Type Desc",
+              "value": "d2"
+            }
+          ]
+        },
+        {
+          "label": "Encounter Category",
+          "value": "e1",
+          "alt": [
+            {
+              "label": "Encounter Category Desc",
+              "value": "e2"
+            }
+          ]
         }
       ]
     },

@@ -27,6 +27,19 @@ export default class qlikObjService {
         }
     }
 
+    async getCondition(chartName){
+        let objectId = this.objectMap.conditions[chartName];
+        let vis = await this.app.visualization.get(objectId);
+
+        vis.show(`condition-${chartName}`)
+
+        return{
+            name: chartName,
+            value: vis,
+            type: "condition"
+        }
+    }
+
     async getVariable(varName){
         let varId = this.objectMap.variables[varName];
         let variable = await this.app.variable.getContent(varId);

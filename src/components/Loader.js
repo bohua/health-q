@@ -72,12 +72,17 @@ function init(that, config, objectMap) {
                 return promises.push(service.getVariable(name));
             });
 
+            Object.keys(objectMap.conditions).map((name) => {
+                return promises.push(service.getCondition(name));
+            });
+
             Promise.all(promises).then((values) => {
                 that.setState({inLoading: false});
 
                 let kpis = {},
                     charts = {},
-                    variables = {};
+                    variables = {},
+                    conditions = {};
 
                 values.forEach((v) => {
                     if (v.type === "kpi")
@@ -86,6 +91,8 @@ function init(that, config, objectMap) {
                         charts[v.name] = v.value;
                     else if (v.type === "variable")
                         variables[v.name] = v.value;
+                    else if (v.type === "condition")
+                        conditions[v.name] = v.value;
                 });
 
                 qlik.getAppList((list) => {
@@ -97,12 +104,13 @@ function init(that, config, objectMap) {
                         kpis,
                         charts,
                         variables,
+                        conditions,
                         user,
                         dict: objectMap.dict,
                         layout: objectMap.layout,
                         qlikObjService: service,
                         isAdmin: hits.length > 0,
-                        loadChart: async function(id){
+                        loadChart: async function (id) {
                             //let objId = objectMap.charts[id];
                             let chart = await service.getChart(id);
 
@@ -114,7 +122,7 @@ function init(that, config, objectMap) {
             });
         });
 
-        if(objectMap.bookmark){
+        if (objectMap.bookmark) {
             currApp.bookmark.apply(objectMap.bookmark);
         }
     });

@@ -19,6 +19,7 @@ import MenuIcon from "@material-ui/icons/Menu"
 import withWidth from '@material-ui/core/withWidth'
 import ReactPageScroller from 'react-page-scroller'
 import Dashboard from "./Dashboard"
+import ChartSingle from "./ChartSingle"
 
 class App extends Component {
     constructor(props) {
@@ -30,6 +31,7 @@ class App extends Component {
                 kpis: [],
                 charts: [],
                 variables: [],
+                conditions: [],
                 user: null,
                 dict: null,
                 layout: [],
@@ -41,9 +43,7 @@ class App extends Component {
             userEl: null,
             currentSection: null,
             profile: localStorage.getItem('profile') || "application",
-            conditions: {
-                "EtallonageCase": "O"
-            }
+            showChartSingle: null
         };
 
         window.numeral.register('locale', 'fr', {
@@ -76,7 +76,47 @@ class App extends Component {
 
     PageOnChange = (number) => {
         if (this.state.dataModel.layout[number - 1]) {
-            this.setState({currentSection: this.state.dataModel.layout[number - 1]});
+            const currentSection = this.state.dataModel.layout[number - 1];
+            this.setState({currentSection});
+
+            console.log(currentSection);
+
+            this.reRenderCharts(currentSection, this.state.conditions);
+        }
+    };
+
+    reRenderCharts = (currentSection) => {
+        if (currentSection.charts) {
+            console.log(this.state.dataModel)
+
+            setTimeout(() => {
+                currentSection.charts.map((chart) => {
+                    if(chart.condition){
+                        let {variable, value} = chart.condition;
+
+                        if (this.state.conditions[variable] === value) {
+
+                            if (!!this.state.dataModel.charts[chart.id]) {
+                                this.state.dataModel.charts[chart.id].show(chart.id);
+                            } else {
+                                this.state.dataModel.loadChart(chart.id).then(vis => {
+                                    this.state.dataModel.charts[chart.id] = vis;
+                                    vis.show(chart.id)
+                                });
+                            }
+                        }
+                    }else{
+                        if (!!this.state.dataModel.charts[chart.id]) {
+                            this.state.dataModel.charts[chart.id].show(chart.id);
+                        } else {
+                            this.state.dataModel.loadChart(chart.id).then(vis => {
+                                this.state.dataModel.charts[chart.id] = vis;
+                                vis.show(chart.id)
+                            });
+                        }
+                    }
+                });
+            }, 500);
         }
     };
 
@@ -85,7 +125,8 @@ class App extends Component {
         this.setState({
             dataModel,
             loaded: true,
-            conditions: {"EtallonageCase": dataModel.variables["EtallonageCase"]}
+            // conditions: {"EtallonageCase": dataModel.variables["EtallonageCase"]}
+            conditions: {"EtallonageCase": "A"}
         });
         setTimeout(() => {
             that.setState({...that.state, showPage: true});
@@ -93,18 +134,30 @@ class App extends Component {
             dataModel.currApp.getObject('CurrentSelections', 'CurrentSelections');
         }, 500);
 
-        let selState = dataModel.currApp.selectionState();
-        let listener = function () {
-            that.state.dataModel.qlikObjService.getVariable("EtallonageCase").then((variable) => {
-                console.log(variable);
+        let vis = dataModel.conditions["EtallonageCase"];
 
-                if (variable.value !== that.state.conditions["EtallonageCase"]) {
-                    that.setState({conditions: {"EtallonageCase": variable.value}, conditionChangedFlag: true});
-                }
-            });
-        };
-        //bind the listener
-        selState.OnData.bind(listener);
+
+        vis.table.OnData.bind(() => {
+            //console.log(vis);
+            let value = vis.model.layout.qHyperCube.qGrandTotalRow["0"].qText;
+            that.setState({conditions: {"EtallonageCase": value}});
+
+            this.reRenderCharts(this.state.currentSection, {conditions: {"EtallonageCase": value}})
+        });
+
+
+        // let selState = dataModel.currApp.selectionState();
+        // let listener = function () {
+        //     that.state.dataModel.qlikObjService.getVariable("EtallonageCase").then((variable) => {
+        //         console.log(variable);
+        //
+        //         if (variable.value !== that.state.conditions["EtallonageCase"]) {
+        //             that.setState({conditions: {"EtallonageCase": variable.value}, conditionChangedFlag: true});
+        //         }
+        //     });
+        // };
+        // //bind the listener
+        // selState.OnData.bind(listener);
     };
 
     handleFilterOpen = () => {
@@ -119,6 +172,14 @@ class App extends Component {
         //this.setState({userEl: null, currentSection: section});
 
         this.goToPage(this.state.dataModel.layout.indexOf(section));
+    };
+
+    handleShowChartSingle = (id) => {
+        this.setState({showChartSingle: id});
+    };
+
+    handleCloseChartSingle = () => {
+        this.setState({showChartSingle: null});
     };
 
     kpiNav = (number) => {
@@ -252,9 +313,12 @@ class App extends Component {
 
         return (
             <div className="main-page" style={{marginLeft: this.state.showFilter ? "301px" : 0}}>
+                <ChartSingle dataModel={this.state.dataModel} open={this.state.showChartSingle}
+                             handleClose={this.handleCloseChartSingle}/>
                 <div className={classes}>
                     <AppBar position="static">
-                        <Toolbar className={this.state.profile === "application" ? "top-bar" : "top-bar admin-view"}>
+                        <Toolbar
+                            className={this.state.profile === "application" ? "top-bar" : "top-bar admin-view"}>
                             {(this.state.showPage & !this.state.showFilter) ?
                                 <IconButton
                                     color="inherit"
@@ -357,6 +421,7 @@ class App extends Component {
                                                               changeVariable={this.changeVariable.bind(this)}
                                                               toRender={toRender}
                                                               conditions={this.state.conditions}
+                                                              handleShowChartSingle={this.handleShowChartSingle}
                                                 />
                                             )
                                         }

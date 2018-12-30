@@ -40,6 +40,21 @@ export default class qlikObjService {
         }
     }
 
+    async getTrigger(triggerName){
+        let objectId = this.objectMap.triggers[triggerName].value.id;
+        let vis = await this.app.visualization.get(objectId);
+        let data = vis.model.layout.qHyperCube.qGrandTotalRow["0"].qText;
+
+        return{
+            name: triggerName,
+            value: {
+                config: this.objectMap.triggers[triggerName],
+                data
+            },
+            type: "trigger"
+        }
+    }
+
     async getVariable(varName){
         let varId = this.objectMap.variables[varName];
         let variable = await this.app.variable.getContent(varId);

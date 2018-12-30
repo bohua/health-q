@@ -76,13 +76,18 @@ function init(that, config, objectMap) {
                 return promises.push(service.getCondition(name));
             });
 
+            Object.keys(objectMap.triggers).map((name) => {
+                return promises.push(service.getTrigger(name));
+            });
+
             Promise.all(promises).then((values) => {
                 that.setState({inLoading: false});
 
                 let kpis = {},
                     charts = {},
                     variables = {},
-                    conditions = {};
+                    conditions = {},
+                    triggers = {};
 
                 values.forEach((v) => {
                     if (v.type === "kpi")
@@ -93,6 +98,8 @@ function init(that, config, objectMap) {
                         variables[v.name] = v.value;
                     else if (v.type === "condition")
                         conditions[v.name] = v.value;
+                    else if (v.type === "trigger")
+                        triggers[v.name] = v.value;
                 });
 
                 qlik.getAppList((list) => {
@@ -105,6 +112,7 @@ function init(that, config, objectMap) {
                         charts,
                         variables,
                         conditions,
+                        triggers,
                         user,
                         dict: objectMap.dict,
                         layout: objectMap.layout,

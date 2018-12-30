@@ -1,5 +1,5 @@
 {
-  "appid": "833afec3-8eb2-484c-816b-9ffaade26c0d",
+  "appid": "7d854797-c9d5-44e9-8e22-3014f2f18fcc",
   "adminid": "9747424a-c99f-4660-9d90-bafcd61ec5fa",
   "kpis": {
     "Benchmarking": "JWRPZFv",
@@ -62,16 +62,36 @@
     "DirectVsIndirectCost": "mvdA",
     "CostBucket": "ckCwpj",
     "DataQualityTable": "EWJmQpk",
-    "DataQualityBar": "CLNqDAM"
+    "DataQualityBar": "CLNqDAM",
+    "CostProfileCostParCMD": "afec96de-6a61-4834-9e90-ea627ecb3bd3",
+    "CostProfileCostParDomaine": "43298792-a8b8-499a-98a3-45e27f318cb5"
   },
+  "bookmark": "29f905bb-56c8-44ac-999e-eb9bf616b081",
   "variables": {
     "selectionMeasure": "Selection_Measure",
-    "selectionDimension": "Selection_Dim"
+    "selectionDimension": "Selection_Dim",
+    "EtallonageCase": "Etallonage_Case"
   },
-  "conditions":{
+  "conditions": {
     "EtallonageCase": "jLbGRUf"
   },
-  "bookmark": "4743b942-2eee-4fe0-9943-05c46e369de4",
+  "triggers": {
+    "UserSelectionPropeGroupe": {
+      "field": "Installation",
+      "value": {
+        "type": "object",
+        "id": "YDUHrJY"
+      }
+    },
+    "UserSelectionCompGroupe": {
+      "field": "Installation",
+      "state": "CompGroup",
+      "value": {
+        "type": "object",
+        "id": "FLnADTY"
+      }
+    }
+  },
   "layout": [
     {
       "id": "dashboard-section",
@@ -231,18 +251,10 @@
       "charts": [
         {
           "id": "PropreGroupe",
-          "width": "0.1",
+          "width": "0.2",
           "height": "0.1",
           "top": "0",
           "left": "0",
-          "extraClass": "chart-kpi"
-        },
-        {
-          "id": "PropreGroupe2",
-          "width": "0.1",
-          "height": "0.1",
-          "top": "0",
-          "left": "0.1",
           "extraClass": "chart-kpi"
         },
         {
@@ -301,18 +313,10 @@
         },
         {
           "id": "CompGroupe",
-          "width": "0.1",
+          "width": "0.2",
           "height": "0.1",
           "top": "0.1",
           "left": "0",
-          "extraClass": "chart-kpi-2"
-        },
-        {
-          "id": "CompGroupe2",
-          "width": "0.1",
-          "height": "0.1",
-          "top": "0.1",
-          "left": "0.1",
           "extraClass": "chart-kpi-2"
         },
         {
@@ -379,7 +383,8 @@
           "condition": {
             "variable": "EtallonageCase",
             "value": "O"
-          }
+          },
+          "hasMaxBtn": true
         },
         {
           "id": "EpisodeByAdmissionCategory",
@@ -391,7 +396,8 @@
           "condition": {
             "variable": "EtallonageCase",
             "value": "O"
-          }
+          },
+          "hasMaxBtn": true
         },
         {
           "id": "NumberOfEpisode",
@@ -403,7 +409,8 @@
           "condition": {
             "variable": "EtallonageCase",
             "value": "O"
-          }
+          },
+          "hasMaxBtn": true
         },
         {
           "id": "AvgCostByDRG",
@@ -415,7 +422,8 @@
           "condition": {
             "variable": "EtallonageCase",
             "value": "O"
-          }
+          },
+          "hasMaxBtn": true
         },
         {
           "id": "Benchmarking_1_A",
@@ -427,7 +435,8 @@
           "condition": {
             "variable": "EtallonageCase",
             "value": "A"
-          }
+          },
+          "hasMaxBtn": true
         },
         {
           "id": "Benchmarking_2_A",
@@ -439,7 +448,8 @@
           "condition": {
             "variable": "EtallonageCase",
             "value": "A"
-          }
+          },
+          "hasMaxBtn": true
         },
         {
           "id": "Benchmarking_3_A",
@@ -451,7 +461,8 @@
           "condition": {
             "variable": "EtallonageCase",
             "value": "A"
-          }
+          },
+          "hasMaxBtn": true
         },
         {
           "id": "Benchmarking_4_A",
@@ -463,7 +474,8 @@
           "condition": {
             "variable": "EtallonageCase",
             "value": "A"
-          }
+          },
+          "hasMaxBtn": true
         },
         {
           "id": "DRG_U",
@@ -601,9 +613,133 @@
       "title": "Variation clinique",
       "charts": [
         {
+          "id": "PropreGroupe",
+          "width": "0.2",
+          "height": "0.1",
+          "top": "0",
+          "left": "0",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "BenchamrkingKpi_NumberOfEpisode",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.2",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "BenchamrkingKpi_DMS",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.33",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "BenchamrkingKpi_TotalCost",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.46",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "BenchamrkingKpi_TotalPerEpisode",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.59",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "BenchamrkingKpi_AverageSeverity",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.72",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "BenchamrkingKpi_AverageAge",
+          "title": "",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.85",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "CompGroupe",
+          "width": "0.2",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0",
+          "extraClass": "chart-kpi-2"
+        },
+        {
+          "id": "BenchamrkingKpi_NumberOfEpisode_Comp",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.2",
+          "extraClass": "chart-kpi-2"
+        },
+        {
+          "id": "BenchamrkingKpi_DMS_Comp",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.33",
+          "extraClass": "chart-kpi-2"
+        },
+        {
+          "id": "BenchamrkingKpi_TotalCost_Comp",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.46",
+          "extraClass": "chart-kpi-2"
+        },
+        {
+          "id": "BenchamrkingKpi_TotalPerEpisode_Comp",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.59",
+          "extraClass": "chart-kpi-2"
+        },
+        {
+          "id": "BenchamrkingKpi_AverageSeverity_Comp",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.72",
+          "extraClass": "chart-kpi-2"
+        },
+        {
+          "id": "BenchamrkingKpi_AverageAge_Comp",
+          "title": "",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.85",
+          "extraClass": "chart-kpi-2"
+        },
+        {
           "id": "ClinicalALOS",
           "title": "DMS (jours)",
-          "top": "0",
+          "top": "0.2",
           "left": "0",
           "width": "0.2",
           "height": "0.1",
@@ -612,7 +748,7 @@
         {
           "id": "NumOfEpisodes",
           "title": "Nombre d'épisode",
-          "top": "0",
+          "top": "0.2",
           "left": "0.2",
           "width": "0.2",
           "height": "0.1",
@@ -621,7 +757,7 @@
         {
           "id": "AvgCostPerEncounter",
           "title": "Coût moyen par épisode",
-          "top": "0",
+          "top": "0.2",
           "left": "0.4",
           "width": "0.2",
           "height": "0.1",
@@ -630,34 +766,38 @@
         {
           "id": "CostDistributionByDRG",
           "title": "none",
-          "top": "0.1",
+          "top": "0.3",
           "left": "0",
           "width": "0.6",
-          "height": "0.3"
+          "height": "0.3",
+          "hasMaxBtn": true
         },
         {
           "id": "TopFive",
           "title": "none",
-          "top": "0",
+          "top": "0.2",
           "left": "0.6",
           "width": "0.4",
-          "height": "0.4"
+          "height": "0.4",
+          "hasMaxBtn": true
         },
         {
           "id": "BottomFive",
           "title": "none",
-          "top": "0.4",
+          "top": "0.6",
           "left": "0.6",
           "width": "0.4",
-          "height": "0.6"
+          "height": "0.4",
+          "hasMaxBtn": true
         },
         {
           "id": "CostDistributionByAge",
           "title": "none",
-          "top": "0.4",
+          "top": "0.6",
           "left": "0",
           "width": "0.6",
-          "height": "0.6"
+          "height": "0.4",
+          "hasMaxBtn": true
         }
       ],
       "measure": [
@@ -703,7 +843,8 @@
           "top": "0",
           "left": "0",
           "width": "1",
-          "height": "0.7"
+          "height": "0.7",
+          "hasMaxBtn": true
         },
         {
           "id": "TrajectoryLine",
@@ -711,7 +852,8 @@
           "top": "0.7",
           "left": "0",
           "width": "1",
-          "height": "0.3"
+          "height": "0.3",
+          "hasMaxBtn": true
         }
       ],
       "measure": [
@@ -770,36 +912,146 @@
       "title": "Profil de coût",
       "charts": [
         {
-          "id": "AvgCostByDischargeTime",
-          "title": "none",
+          "id": "PropreGroupe",
+          "width": "0.2",
+          "height": "0.1",
           "top": "0",
           "left": "0",
-          "width": "0.7",
-          "height": "0.5"
+          "extraClass": "chart-kpi"
         },
         {
-          "id": "DirectVsIndirectCost",
-          "title": "none",
+          "id": "BenchamrkingKpi_NumberOfEpisode",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
           "top": "0",
-          "left": "0.7",
-          "width": "0.3",
-          "height": "0.5"
+          "left": "0.2",
+          "extraClass": "chart-kpi"
         },
         {
-          "id": "CostBucketByDRG",
-          "title": "none",
-          "top": "0.5",
+          "id": "BenchamrkingKpi_DMS",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.33",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "BenchamrkingKpi_TotalCost",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.46",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "BenchamrkingKpi_TotalPerEpisode",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.59",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "BenchamrkingKpi_AverageSeverity",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.72",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "BenchamrkingKpi_AverageAge",
+          "title": "",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0",
+          "left": "0.85",
+          "extraClass": "chart-kpi"
+        },
+        {
+          "id": "CompGroupe",
+          "width": "0.2",
+          "height": "0.1",
+          "top": "0.1",
           "left": "0",
-          "width": "0.7",
-          "height": "0.5"
+          "extraClass": "chart-kpi-2"
         },
         {
-          "id": "NumberOfEpisodeByDRG",
+          "id": "BenchamrkingKpi_NumberOfEpisode_Comp",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.2",
+          "extraClass": "chart-kpi-2"
+        },
+        {
+          "id": "BenchamrkingKpi_DMS_Comp",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.33",
+          "extraClass": "chart-kpi-2"
+        },
+        {
+          "id": "BenchamrkingKpi_TotalCost_Comp",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.46",
+          "extraClass": "chart-kpi-2"
+        },
+        {
+          "id": "BenchamrkingKpi_TotalPerEpisode_Comp",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.59",
+          "extraClass": "chart-kpi-2"
+        },
+        {
+          "id": "BenchamrkingKpi_AverageSeverity_Comp",
+          "title": "",
+          "width": "0.13",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.72",
+          "extraClass": "chart-kpi-2"
+        },
+        {
+          "id": "BenchamrkingKpi_AverageAge_Comp",
+          "title": "",
+          "width": "0.15",
+          "height": "0.1",
+          "top": "0.1",
+          "left": "0.85",
+          "extraClass": "chart-kpi-2"
+        },
+        {
+          "id": "CostProfileCostParCMD",
           "title": "none",
-          "top": "0.5",
-          "left": "0.7",
-          "width": "0.3",
-          "height": "0.5"
+          "top": "0.2",
+          "left": "0",
+          "width": "0.6",
+          "height": "0.8",
+          "hasMaxBtn": true
+        },
+        {
+          "id": "CostProfileCostParDomaine",
+          "title": "none",
+          "top": "0.2",
+          "left": "0.6",
+          "width": "0.4",
+          "height": "0.8",
+          "hasMaxBtn": true
         }
       ],
       "measure": [
@@ -823,7 +1075,8 @@
           "top": "0",
           "left": "0",
           "width": "1",
-          "height": "0.5"
+          "height": "0.5",
+          "hasMaxBtn": true
         },
         {
           "id": "DataQualityTable",
@@ -831,7 +1084,8 @@
           "top": "0.5",
           "left": "0",
           "width": "1",
-          "height": "0.5"
+          "height": "0.5",
+          "hasMaxBtn": true
         }
       ]
     },

@@ -85,16 +85,16 @@ class App extends Component {
         }
     };
 
-    reRenderCharts = (currentSection) => {
+    reRenderCharts = (currentSection, conditions) => {
         if (currentSection.charts) {
             console.log(this.state.dataModel)
 
             setTimeout(() => {
                 currentSection.charts.map((chart) => {
-                    if(chart.condition){
+                    if (chart.condition) {
                         let {variable, value} = chart.condition;
 
-                        if (this.state.conditions[variable] === value) {
+                        if (conditions[variable] === value) {
 
                             if (!!this.state.dataModel.charts[chart.id]) {
                                 this.state.dataModel.charts[chart.id].show(chart.id);
@@ -105,7 +105,7 @@ class App extends Component {
                                 });
                             }
                         }
-                    }else{
+                    } else {
                         if (!!this.state.dataModel.charts[chart.id]) {
                             this.state.dataModel.charts[chart.id].show(chart.id);
                         } else {
@@ -115,6 +115,8 @@ class App extends Component {
                             });
                         }
                     }
+
+                    return null;
                 });
             }, 500);
         }
@@ -134,26 +136,47 @@ class App extends Component {
             dataModel.currApp.getObject('CurrentSelections', 'CurrentSelections');
         }, 500);
 
-        let vis = dataModel.conditions["EtallonageCase"];
+        console.log(dataModel.triggers);
+        Object.keys(dataModel.triggers).map((triggerName) => {
+            let trigger = dataModel.triggers[triggerName];
 
+            let field = trigger.config.state? dataModel.currApp.field(trigger.config.field, trigger.config.state) :  dataModel.currApp.field(trigger.config.field);
 
-        vis.table.OnData.bind(() => {
-            //console.log(vis);
-            let value = vis.model.layout.qHyperCube.qGrandTotalRow["0"].qText;
-            that.setState({conditions: {"EtallonageCase": value}});
-
-            this.reRenderCharts(this.state.currentSection, {conditions: {"EtallonageCase": value}})
+            field.selectValues(trigger.data.split(","), false, true);
         });
+
+
+        //let vis = dataModel.conditions["EtallonageCase"];
+
+
+        // vis.table.OnData.bind(() => {
+        //     let value = vis.model.layout.qHyperCube.qGrandTotalRow["0"].qText;
+        //
+        //     console.log("ondata:", value);
+        //     //
+        //     // that.setState({conditions: {"EtallonageCase": value}});
+        //     //
+        //     // that.reRenderCharts(this.state.currentSection, {conditions: {"EtallonageCase": value}})
+        // });
+
 
 
         // let selState = dataModel.currApp.selectionState();
         // let listener = function () {
-        //     that.state.dataModel.qlikObjService.getVariable("EtallonageCase").then((variable) => {
+        //
+        //     dataModel.qlikObjService.getVariable("EtallonageCase").then((variable) => {
         //         console.log(variable);
         //
         //         if (variable.value !== that.state.conditions["EtallonageCase"]) {
-        //             that.setState({conditions: {"EtallonageCase": variable.value}, conditionChangedFlag: true});
+        //             that.setState({conditions: {"EtallonageCase": variable.value}});
+        //             console.log(variable);
+        //
+        //             if (that.state.currentSection) {
+        //                 that.reRenderCharts(that.state.currentSection, {"EtallonageCase": variable.value});
+        //             }
         //         }
+        //
+        //
         //     });
         // };
         // //bind the listener

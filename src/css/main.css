@@ -353,4 +353,8 @@ html, body, #root, .main-page, .router-page {
   display: none;
 }
 
+#Filter {
+  height: calc(100% - 66px);
+}
+
 /*# sourceMappingURL=main.css.map */

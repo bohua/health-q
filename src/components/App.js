@@ -13,7 +13,6 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import logo from "../images/logo.svg"
 import ChartSection from "./ChartSection"
-import ChartBlock from "./ChartBlock"
 import Button from "@material-ui/core/Button"
 import MenuIcon from "@material-ui/icons/Menu"
 import withWidth from '@material-ui/core/withWidth'
@@ -140,9 +139,9 @@ class App extends Component {
         Object.keys(dataModel.triggers).map((triggerName) => {
             let trigger = dataModel.triggers[triggerName];
 
-            let field = trigger.config.state? dataModel.currApp.field(trigger.config.field, trigger.config.state) :  dataModel.currApp.field(trigger.config.field);
+            let field = trigger.config.state ? dataModel.currApp.field(trigger.config.field, trigger.config.state) : dataModel.currApp.field(trigger.config.field);
 
-            field.selectValues(trigger.data.split(","), false, true);
+            return field.selectValues(trigger.data.split(","), false, true);
         });
 
 
@@ -158,7 +157,6 @@ class App extends Component {
         //     //
         //     // that.reRenderCharts(this.state.currentSection, {conditions: {"EtallonageCase": value}})
         // });
-
 
 
         // let selState = dataModel.currApp.selectionState();
@@ -185,6 +183,19 @@ class App extends Component {
 
     handleFilterOpen = () => {
         this.setState({showFilter: true});
+
+
+        let chart = {id: "Filter"};
+
+        if (!!this.state.dataModel.charts[chart.id]) {
+            this.state.dataModel.charts[chart.id].show(chart.id);
+        } else {
+            this.state.dataModel.loadChart(chart.id).then(vis => {
+                this.state.dataModel.charts[chart.id] = vis;
+                vis.show(chart.id)
+            });
+        }
+
     };
 
     handleFilterClose = () => {
@@ -262,8 +273,6 @@ class App extends Component {
             done: this.state.loaded
         });
 
-        const charts = this.state.dataModel.charts;
-
         const filterPane = (
             <Drawer
                 variant="persistent"
@@ -278,16 +287,7 @@ class App extends Component {
                 </div>
                 <Divider/>
                 <div className="filter-panel-body">
-                    {this.state.showFilter ? (
-                        <ChartBlock title="" id="Filter"
-                                    handler={charts["Filter"]}
-                                    key="Filter"
-                                    top="0" left="0"
-                                    width="100%" height="100%"
-                                    toRender={true}
-                                    dataModel={this.state.dataModel}
-                        />
-                    ) : null}
+                    <div id="Filter"></div>
                 </div>
                 <Divider/>
 

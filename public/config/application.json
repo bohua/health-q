@@ -3,8 +3,8 @@
   "adminid": "9747424a-c99f-4660-9d90-bafcd61ec5fa",
   "kpis": {
     "Benchmarking": "JWRPZFv",
-    "ClinicalVariation": "SurVa",
-    "Geospatial": "HXjA",
+    "ClinicalVariation": "jQMmEsB",
+    "Geospatial": "JWRPZFv",
     "DataQuality": "Ltbfp"
   },
   "charts": {
@@ -44,16 +44,10 @@
     "EpisodeByAdmissionCategory_E": "6bc524d0-6836-46ef-8c47-c2299866fbcc",
     "NumberOfEpisode_E": "1c1bfad5-f57a-421c-8f50-1c80bc088c44",
     "AvgCostByDRG_E": "f498c87f-45cf-469b-907a-39347f17cbe9",
-    "NumOfEpisodes": "HXjA",
-    "ClinicalALOS": "SurVa",
-    "AvgCostPerEncounter": "CYpaDD",
-    "TopFive": "QJXCxg",
-    "BottomFive": "fgbmZ",
-    "ClinicalTable": "xPbLdps",
-    "CostBucketByDRG": "YKBdJL",
-    "NumberOfEpisodeByDRG": "TVmQjmp",
-    "CostDistributionByDRG": "PJnzR",
-    "CostDistributionByAge": "mPcdLa",
+    "ClinicalVariation1": "PJnzR",
+    "ClinicalVariation2": "LVhTeTC",
+    "ClinicalVariation3": "fgbmZ",
+    "ClinicalVariation4": "mPcdLa",
     "TrajectorySankey": "HSmpBg",
     "TrajectoryLine": "qwccv",
     "WIPMap": "TcDBSbt",
@@ -77,12 +71,14 @@
     "CostProfileKpi_Comp4": "aWjUwsJ",
     "CostProfileFilter1": "jfDJq",
     "CostProfileFilter2": "PwSQBq",
-    "CostProfileFilter3": "wDQmMqh"
+    "CostProfileFilter3": "wDQmMqh",
+    "GL_Reconciliation": "JNxPPYj"
   },
   "bookmark": "29f905bb-56c8-44ac-999e-eb9bf616b081",
   "variables": {
     "selectionMeasure": "Selection_Measure",
     "selectionDimension": "Selection_Dim",
+    "selectionGL": "v_GL_Page",
     "EtallonageCase": "Etallonage_Case"
   },
   "conditions": {
@@ -587,26 +583,33 @@
           }
         }
       ],
-      "measure": [
+      "variable": [
         {
-          "label": "DMS",
-          "value": "a"
-        },
-        {
-          "label": "Nombre d'épisode",
-          "value": "b"
-        },
-        {
-          "label": "Coût total",
-          "value": "c"
-        },
-        {
-          "label": "Coût moyen",
-          "value": "d"
-        },
-        {
-          "label": "Total de jours",
-          "value": "e"
+          "id": "selectionMeasure",
+          "label": "Measure",
+          "options": [
+            {
+              "label": "DMS",
+              "value": "a"
+            },
+            {
+              "label": "Nombre d'épisode",
+              "value": "b"
+            },
+            {
+              "label": "Coût total",
+              "value": "c"
+            },
+            {
+              "label": "Coût moyen",
+              "value": "d"
+            },
+            {
+              "label": "Total de jours",
+              "value": "e"
+            }
+          ],
+          "style": "measure"
         }
       ],
       "filter": [
@@ -750,7 +753,7 @@
           "extraClass": "chart-kpi-2"
         },
         {
-          "id": "CostDistributionByDRG",
+          "id": "ClinicalVariation1",
           "title": "none",
           "top": "0.2",
           "left": "0",
@@ -759,7 +762,7 @@
           "hasMaxBtn": true
         },
         {
-          "id": "TopFive",
+          "id": "ClinicalVariation2",
           "title": "none",
           "top": "0.2",
           "left": "0.6",
@@ -768,7 +771,7 @@
           "hasMaxBtn": true
         },
         {
-          "id": "BottomFive",
+          "id": "ClinicalVariation3",
           "title": "none",
           "top": "0.6",
           "left": "0.6",
@@ -777,7 +780,7 @@
           "hasMaxBtn": true
         },
         {
-          "id": "CostDistributionByAge",
+          "id": "ClinicalVariation4",
           "title": "none",
           "top": "0.6",
           "left": "0",
@@ -786,36 +789,48 @@
           "hasMaxBtn": true
         }
       ],
-      "measure": [
+      "variable": [
         {
-          "label": "DMS",
-          "value": "a"
+          "id": "selectionMeasure",
+          "label": "Measure",
+          "options": [
+            {
+              "label": "DMS",
+              "value": "a"
+            },
+            {
+              "label": "Nombre d'épisode",
+              "value": "b"
+            },
+            {
+              "label": "Coût total",
+              "value": "c"
+            },
+            {
+              "label": "Coût moyen",
+              "value": "d"
+            }
+          ],
+          "style": "measure"
         },
         {
-          "label": "Nombre d'épisode",
-          "value": "b"
-        },
-        {
-          "label": "Coût total",
-          "value": "c"
-        },
-        {
-          "label": "Coût moyen",
-          "value": "d"
-        }
-      ],
-      "dimension": [
-        {
-          "label": "DRG",
-          "value": "a"
-        },
-        {
-          "label": "Groupe d'âge",
-          "value": "b"
-        },
-        {
-          "label": "Installation",
-          "value": "c"
+          "id": "selectionDimension",
+          "label": "Dimension",
+          "options": [
+            {
+              "label": "DRG",
+              "value": "a"
+            },
+            {
+              "label": "Groupe d'âge",
+              "value": "b"
+            },
+            {
+              "label": "Installation",
+              "value": "c"
+            }
+          ],
+          "style": "dimension"
         }
       ]
     },
@@ -842,22 +857,29 @@
           "hasMaxBtn": true
         }
       ],
-      "measure": [
+      "variable": [
         {
-          "label": "DMS",
-          "value": "a"
-        },
-        {
-          "label": "Nombre d'épisode",
-          "value": "b"
-        },
-        {
-          "label": "Coût total",
-          "value": "c"
-        },
-        {
-          "label": "Coût moyen",
-          "value": "d"
+          "id": "selectionMeasure",
+          "label": "Measure",
+          "options": [
+            {
+              "label": "DMS",
+              "value": "a"
+            },
+            {
+              "label": "Nombre d'épisode",
+              "value": "b"
+            },
+            {
+              "label": "Coût total",
+              "value": "c"
+            },
+            {
+              "label": "Coût moyen",
+              "value": "d"
+            }
+          ],
+          "style": "measure"
         }
       ]
     },
@@ -874,22 +896,29 @@
           "height": "1"
         }
       ],
-      "measure": [
+      "variable": [
         {
-          "label": "DMS",
-          "value": "a"
-        },
-        {
-          "label": "Nombre d'épisode",
-          "value": "b"
-        },
-        {
-          "label": "Coût total",
-          "value": "c"
-        },
-        {
-          "label": "Coût moyen",
-          "value": "d"
+          "id": "selectionMeasure",
+          "label": "Measure",
+          "options": [
+            {
+              "label": "DMS",
+              "value": "a"
+            },
+            {
+              "label": "Nombre d'épisode",
+              "value": "b"
+            },
+            {
+              "label": "Coût total",
+              "value": "c"
+            },
+            {
+              "label": "Coût moyen",
+              "value": "d"
+            }
+          ],
+          "style": "measure"
         }
       ]
     },
@@ -1004,14 +1033,21 @@
           "hasMaxBtn": true
         }
       ],
-      "measure": [
+      "variable": [
         {
-          "label": "Coût total",
-          "value": "c"
-        },
-        {
-          "label": "Coût moyen",
-          "value": "d"
+          "id": "selectionMeasure",
+          "label": "Measure",
+          "options": [
+            {
+              "label": "Coût total",
+              "value": "c"
+            },
+            {
+              "label": "Coût moyen",
+              "value": "d"
+            }
+          ],
+          "style": "measure"
         }
       ],
       "filter": [
@@ -1047,6 +1083,41 @@
           "width": "1",
           "height": "0.5",
           "hasMaxBtn": true
+        }
+      ]
+    },
+    {
+      "id": "gl-section",
+      "title": "GL Reconciliation",
+      "charts": [
+        {
+          "id": "GL_Reconciliation",
+          "title": "none",
+          "left": "0",
+          "top": "0",
+          "width": "1",
+          "height": "1"
+        }
+      ],
+      "variable": [
+        {
+          "id": "selectionGL",
+          "label": "Switch",
+          "options": [
+            {
+              "label": "Summery",
+              "value": "1"
+            },
+            {
+              "label": "Coûts Exclus",
+              "value": "2"
+            },
+            {
+              "label": "Impasses Formelles",
+              "value": "3"
+            }
+          ],
+          "style": "switch"
         }
       ]
     },

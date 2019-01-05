@@ -228,6 +228,18 @@ html, body, #root, .main-page, .router-page {
   color: #f9f9f9;
   background: #4ecec9;
 }
+.chart-section .chart-section-title .chart-selection-bar .switch {
+  background: #e8e8e8;
+  border-radius: 20px;
+  padding: 2px 20px;
+  margin: 0 5px;
+}
+.chart-section .chart-section-title .chart-selection-bar .switch .selection-chip {
+  background-color: #FCF3CF;
+}
+.chart-section .chart-section-title .chart-selection-bar .switch .selection-chip.active {
+  background: #F4D03F;
+}
 .chart-section .chart-section-title .chart-selection-bar .filter {
   background: #e8e8e8;
   border-radius: 20px;

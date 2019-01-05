@@ -54,7 +54,7 @@ class ChartSection extends Component {
     }
 
     render() {
-        const {id, charts, clearAll, measure, dimension, filter, dataModel, changeVariable, conditions} = this.props;
+        const {id, charts, clearAll, variable, measure, dimension, filter, dataModel, changeVariable, conditions} = this.props;
         // const {anchorEl} = this.state;
         // let exportBtn = charts.length > 0 ? (
         //     <a color="secondary" aria-label="Export" className="chart-func-btn"
@@ -66,40 +66,27 @@ class ChartSection extends Component {
             <section id={id} className="chart-section">
                 <div className="chart-section-title">
                     <div className="chart-selection-bar">
+                        {(variable && variable.length > 0) ?
 
-                        {(dimension && dimension.length > 0) ?
-                            <div className="dimension">
-                                <a>Dimension: </a>
-                                {dimension.map(chip => {
-                                    const dim = dataModel.variables["selectionDimension"];
+                            variable.map((v) => {
+                                return (
+                                    <div className={v.style} key={v.id}>
+                                        <a>{v.label}: </a>
+                                        {v.options.map(chip => {
+                                            const model = dataModel.variables[v.id];
+                                            return (
+                                                <SelectionChip
+                                                    data={chip}
+                                                    onChange={changeVariable}
+                                                    variable={{name: v.id, value: model}}
+                                                    key={chip.label}
+                                                ></SelectionChip>
+                                            )
+                                        })}
+                                    </div>
+                                );
+                            }) : null
 
-                                    return (
-                                        <SelectionChip
-                                            data={chip}
-                                            onChange={changeVariable}
-                                            variable={{name: "selectionDimension", value: dim}}
-                                            key={chip.label}
-                                        ></SelectionChip>
-                                    )
-                                })}
-                            </div> : null
-                        }
-
-                        {(measure && measure.length > 0) ?
-                            <div className="measure">
-                                <a>Measure: </a>
-                                {measure.map(chip => {
-                                    const msr = dataModel.variables["selectionMeasure"];
-                                    return (
-                                        <SelectionChip
-                                            data={chip}
-                                            onChange={changeVariable}
-                                            variable={{name: "selectionMeasure", value: msr}}
-                                            key={chip.label}
-                                        ></SelectionChip>
-                                    )
-                                })}
-                            </div> : null
                         }
 
                         {(filter && filter.length > 0) ?
@@ -110,7 +97,7 @@ class ChartSection extends Component {
                                         const dataModel = this.props.dataModel,
                                             id = flt.id;
 
-                                        if(this.props.toRender){
+                                        if (this.props.toRender) {
 
 
                                             if (!!dataModel[id]) {

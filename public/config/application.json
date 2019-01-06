@@ -925,6 +925,15 @@
     {
       "id": "cost-profile-section",
       "title": "Profil de coût",
+      "child":[
+        {
+          "id": "cost-profile-2-section",
+          "title": "Cost Profile 2"
+        },{
+          "id": "cost-profile-3-section",
+          "title": "Cost Profile 3"
+        }
+      ],
       "charts": [
         {
           "id": "CostProfilePropreGroupe",
@@ -1060,6 +1069,20 @@
         {
           "id": "CostProfileFilter3"
         }
+      ]
+    },
+    {
+      "id": "cost-profile-2-section",
+      "title": "Cost Profile 2",
+      "alt": "cost-profile-section",
+      "charts": [
+      ]
+    },
+    {
+      "id": "cost-profile-3-section",
+      "title": "Cost Profile 3",
+      "alt": "cost-profile-section",
+      "charts": [
       ]
     },
     {

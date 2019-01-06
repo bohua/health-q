@@ -19,6 +19,8 @@ import withWidth from '@material-ui/core/withWidth'
 import ReactPageScroller from 'react-page-scroller'
 import Dashboard from "./Dashboard"
 import ChartSingle from "./ChartSingle"
+import {bindMenu, bindTrigger} from "material-ui-popup-state/index";
+import PopupState from "material-ui-popup-state/index";
 
 class App extends Component {
     constructor(props) {
@@ -203,9 +205,16 @@ class App extends Component {
     };
 
     handleMenuNav = (section) => {
-        //this.setState({userEl: null, currentSection: section});
-
         this.goToPage(this.state.dataModel.layout.indexOf(section));
+    };
+
+    handleMenuListNav = (sectionId, popupState) => {
+        const section = this.state.dataModel.layout.filter((sec)=>{
+           if(sec.id === sectionId) return true;
+        });
+
+        popupState.close();
+        this.goToPage(this.state.dataModel.layout.indexOf(section[0]));
     };
 
     handleShowChartSingle = (id) => {
@@ -368,10 +377,45 @@ class App extends Component {
                                                 //Don't need nav button for dashboard
                                                 if (index === 0) return null;
 
+                                                if (section.alt) return null;
+
                                                 let cstring = "top-bar-nav-btn";
                                                 if (this.state.currentSection && section) {
                                                     if (this.state.currentSection.id === section.id)
                                                         cstring += " active";
+                                                    else if (this.state.currentSection.alt === section.id){
+                                                        cstring += " active";
+                                                    }
+                                                }
+
+                                                if (section.child && section.child.length > 0) {
+                                                    return (
+                                                        <PopupState variant="popover"
+                                                                    popupId={`popup-nav-menu-${section.id}`}
+                                                                    key={index}>
+                                                            {popupState => (
+                                                                <React.Fragment>
+                                                                    <Button
+                                                                        className={cstring}
+                                                                        {...bindTrigger(popupState)}>
+                                                                        {section.title}
+                                                                    </Button>
+                                                                    <Menu {...bindMenu(popupState)}>
+                                                                        <MenuItem onClick={()=>this.handleMenuListNav(section.id, popupState)} key={section.id}>
+                                                                            {section.title}
+                                                                        </MenuItem>
+                                                                        {
+                                                                            section.child.map((childNav) =>
+                                                                                <MenuItem onClick={()=>this.handleMenuListNav(childNav.id, popupState)} key={childNav.id}>
+                                                                                    {childNav.title}
+                                                                                    </MenuItem>
+                                                                            )
+                                                                        }
+                                                                    </Menu>
+                                                                </React.Fragment>
+                                                            )}
+                                                        </PopupState>
+                                                    );
                                                 }
 
                                                 return (
